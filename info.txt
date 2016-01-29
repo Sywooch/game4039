@@ -1,0 +1,27 @@
+
+这里是一些常用的入口地址以及其他有用的信息
+
+1>
+http://game4039.dev/user/admin  前台用户管理(默认账号:buuug7)
+
+2>
+用户的行为配置在config文件,component->user中
+
+3>
+覆盖引用composer第三方类库中的个别文件的目录为项目根目录下的override-3rd-lib目录
+
+4>
+该项目下运行yii migrate
+//创建一个迁移,位于common/migrations/db
+php console/yii migrate/create create_table_game_gamecategory
+//执行一个迁移
+php console/yii
+
+//创建一个rbac迁移,会在common/migrations/rbac目录生成一个新的迁移文件
+php console/yii rbac-migrate/create
+//执行一个rbac迁移文件
+php console/yii rbac-migrate
+
+5>
+由于来自于http://layer.layui.com/官网的layer插件没有对应的bower以及npm资源
+并不能用包管理来引用,将其放入项目根目录的overrider-3rd-lib目录中
