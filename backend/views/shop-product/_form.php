@@ -32,7 +32,7 @@ use common\models\ShopProduct;
 		[
 			'plugins' => ['fullscreen', 'fontcolor', 'video'],
 			'options' => [
-				'lang' => 'zh_cn',
+				'lang' => 'zh',
 				'minHeight' => 400,
 				'maxHeight' => 400,
 				'buttonSource' => true,

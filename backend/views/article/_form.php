@@ -35,7 +35,7 @@ use yii\bootstrap\ActiveForm;
 		[
 			'plugins' => ['fullscreen', 'fontcolor', 'video','fontsize'],
 			'options' => [
-				'lang' => 'zh_cn',
+				'lang' => 'zh',
 				'minHeight' => 400,
 				'maxHeight' => 400,
 				'buttonSource' => true,

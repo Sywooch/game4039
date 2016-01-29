@@ -70,7 +70,7 @@ use trntv\yii\datetime\DateTimeWidget;
 		[
 			'plugins' => ['fullscreen', 'fontcolor', 'video','fontsize'],
 			'options' => [
-				'lang' => 'zh_cn',
+				'lang' => 'zh',
 				'minHeight' => 150,
 				'maxHeight' => 400,
 				'buttonSource' => true,
@@ -86,7 +86,7 @@ use trntv\yii\datetime\DateTimeWidget;
 		[
 			'plugins' => ['fullscreen', 'fontcolor', 'video','fontsize'],
 			'options' => [
-				'lang' => 'zh_cn',
+				'lang' => 'zh',
 				'minHeight' => 150,
 				'maxHeight' => 400,
 				'buttonSource' => true,
@@ -102,7 +102,7 @@ use trntv\yii\datetime\DateTimeWidget;
 		[
 			'plugins' => ['fullscreen', 'fontcolor', 'video','fontsize'],
 			'options' => [
-				'lang' => 'zh_cn',
+				'lang' => 'zh',
 				'minHeight' => 150,
 				'maxHeight' => 400,
 				'buttonSource' => true,
@@ -118,7 +118,7 @@ use trntv\yii\datetime\DateTimeWidget;
 		[
 			'plugins' => ['fullscreen', 'fontcolor', 'video','fontsize'],
 			'options' => [
-				'lang' => 'zh_cn',
+				'lang' => 'zh',
 				'minHeight' => 600,
 				'maxHeight' => 800,
 				'buttonSource' => true,
