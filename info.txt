@@ -25,3 +25,7 @@ php console/yii rbac-migrate
 5>
 由于来自于http://layer.layui.com/官网的layer插件没有对应的bower以及npm资源
 并不能用包管理来引用,将其放入项目根目录的overrider-3rd-lib目录中
+
+6>
+记着安装composer-asset-plugin
+composer require "fxp/composer-asset-plugin:~1.0.3"
