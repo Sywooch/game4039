@@ -29,8 +29,8 @@ use yii\helpers\Url;
 	<li class="list-group-item user-credits">
 		<a href="<?= Url::to('/user/profile/credits')?>"><i class="fa fa-database"></i> 我的积分</a>
 	</li>
-	<li class="list-group-item">
-		<a href=""><i class="fa fa-envelope"></i> 我的消息</a>
+	<li class="list-group-item user-message">
+		<a href="<?= Url::to('/user/profile/user-message')?>"><i class="fa fa-envelope"></i> 我的消息</a>
 	</li>
 	<li class="list-group-item">
 		<a href="<?= Url::to(['/product/my-order'])?>"><i class="fa fa-shopping-cart"></i> 我的订单</a>

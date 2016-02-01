@@ -194,6 +194,7 @@ $bundle = BackendAsset::register($this);
 							'items' => [
 								['label' => Yii::t('common', 'Activity Category'), 'url' => ['/activity-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
 								['label' => Yii::t('common', 'Activity'), 'url' => ['/activity/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+								['label' => Yii::t('common', 'Site Messages'), 'url' => ['/message/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
 							]
 						],
 						[

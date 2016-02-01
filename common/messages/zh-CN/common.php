@@ -292,4 +292,11 @@ return [
 	'Failure' => '失败',
 	'Pay Mode' => '支付方式',
 	'Pay Mode Zhi Fu Bao Yu E' => '支付宝余额',
+	'Receive' => '接收者',
+	'Unread' => '未阅读用户',
+	'Sender' => '发送者',
+	'Site Messages' => '站内消息',
+	'Status Active' => '可用',
+	'Status Deleted' => '已删除',
+	'All Site User' => '全站用户',
 ];

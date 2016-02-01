@@ -31,3 +31,30 @@ php console/yii rbac-migrate
 composer require "fxp/composer-asset-plugin:~1.0.3"
 
 7>
+站内消息设计方案:
+方案一:
+消息表message:
+编号 id
+时间 date
+标题 title
+正文 content
+未读用户 unread
+接收用户 receive
+发送用户 send
+
+字段receive保存消息接收人的ID序列如1,2,3,4(用逗号分隔).
+字段unread保存未阅读消息的接收人的ID序列,unread初始值也为所有接收人,阅读过消息的用户则从中删除掉.
+可以用MySQL内部函数FIND_IN_SET(返回找到的位置,从1开始)进行查询.
+
+比如,查询编号为2的用户的未读信息:
+SELECT * FROM `message` WHERE FIND_IN_SET('2', `unread`);
+
+或者使用全文检索(需要对字段unread建立全文索引,ID序列用空格隔开,如1 2 3 4):
+SELECT * FROM `message` WHERE MATCH(`unread`) AGAINST('2');
+
+数据量比较大的话,FIND_IN_SET可能会存在性能问题,建议定时清理消息表过期的已经阅读过的消息.
+
+方案二:
+1.tb_message (id,content,fromUid,toUid [0表示全站用户，>0表示发送给某个用户])
+2.tb_message_readlog (readLogId,messageId,uid,isread)
+如果消息数据量比较大，建议分表处理，可以根据用户的id来分表，比如id=123456的用户发送的消息就放到tb_message6，类似这样的处理

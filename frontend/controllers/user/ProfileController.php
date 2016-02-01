@@ -9,6 +9,7 @@
 
 namespace frontend\controllers\user;
 
+use common\models\Message;
 use common\models\UserHistory;
 use common\util\DzHelper;
 use Yii;
@@ -25,7 +26,7 @@ class ProfileController extends \dektrium\user\controllers\ProfileController
 			'access' => [
 				'class' => AccessControl::className(),
 				'rules' => [
-					['allow' => true, 'actions' => ['index', 'user-history', 'credits'], 'roles' => ['@']],
+					['allow' => true, 'actions' => ['index', 'user-history', 'credits', 'user-message'], 'roles' => ['@']],
 					['allow' => true, 'actions' => ['show'], 'roles' => ['?', '@']],
 				],
 			],
@@ -64,6 +65,23 @@ class ProfileController extends \dektrium\user\controllers\ProfileController
 
 		return $this->render('credits', [
 			'dzUser' => (new DzHelper())->getDzUserByUsername(Yii::$app->user->identity->username)]);
+	}
+
+	public function actionUserMessage()
+	{
+		$user = Yii::$app->user->identity;
+		//$query = UserHistory::find()->where(['status' => UserHistory::STATUS_IN_USE, 'user_id' => $user->getId()])->orderBy('created_at DESC');
+		$query = Message::find()->where(['status' => Message::STATUS_ACTIVE])->orderBy('created_at DESC');
+		$dataProvider = new ActiveDataProvider([
+			'query' => $query,
+			'pagination' => [
+				'pageSize' => 1
+			]
+		]);
+
+		return $this->render('user-message', [
+			'dataProvider' => $dataProvider,
+		]);
 	}
 
 }
