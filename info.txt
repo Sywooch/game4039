@@ -58,3 +58,7 @@ SELECT * FROM `message` WHERE MATCH(`unread`) AGAINST('2');
 1.tb_message (id,content,fromUid,toUid [0表示全站用户，>0表示发送给某个用户])
 2.tb_message_readlog (readLogId,messageId,uid,isread)
 如果消息数据量比较大，建议分表处理，可以根据用户的id来分表，比如id=123456的用户发送的消息就放到tb_message6，类似这样的处理
+
+8>
+用户消息需要完善的地方:
+增加分类,前台用户删除已阅读的消息

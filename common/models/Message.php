@@ -132,9 +132,10 @@ class Message extends \yii\db\ActiveRecord
 	}
 
 	/**
+	 *
 	 * 用message表中删除已阅读用户的id,返回0表示删除失败,返回大于0表示成功
-	 * @param $messageId 消息id
-	 * @param $userId 用户id
+	 * @param $messageId
+	 * @param $userId
 	 * @return int 0=>删除失败,1=>成功删除
 	 * @throws \yii\db\Exception
 	 */

@@ -56,7 +56,7 @@ use yii\helpers\Url;
 		 class="progress-bar progress-bar-u">
 	</div>
 </div>
-<h3 class="heading-xs">账号完整度 <span class="pull-right">85%</span></h3>
+<a href="<?= Url::to('/user/settings/profile')?>" style="text-decoration:none"><h3 class="heading-xs">账号完整度 <span class="pull-right">85%</span></h3></a>
 
 <div class="progress progress-u progress-xxs">
 	<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar"

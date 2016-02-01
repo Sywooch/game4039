@@ -70,12 +70,11 @@ class ProfileController extends \dektrium\user\controllers\ProfileController
 	public function actionUserMessage()
 	{
 		$user = Yii::$app->user->identity;
-		//$query = UserHistory::find()->where(['status' => UserHistory::STATUS_IN_USE, 'user_id' => $user->getId()])->orderBy('created_at DESC');
 		$query = Message::find()->where(['status' => Message::STATUS_ACTIVE])->orderBy('created_at DESC');
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,
 			'pagination' => [
-				'pageSize' => 1
+				'pageSize' => 2
 			]
 		]);
 
