@@ -7,7 +7,13 @@
  * Desc:
  */
 
+use frontend\models\Credits;
+
+$credit=(new Credits())->getUserVipLevelByCredit($dzUser['credits']);
+
 $this->title = '用户积分';
+
+//myVarDump((new \frontend\models\Credits())->getUserVipLevelByCredit($dzUser['credits']));
 
 ?>
 <div class="container content">
@@ -34,15 +40,16 @@ $this->title = '用户积分';
 								<div class="clearfix margin-bottom-10"></div>
 
 								<div class="statistics">
-									<h3 class="heading-xs">还差296点积分就升级啦!<span class="pull-right"><?= $dzUser['credits'] ?>/300</span>
+									<h3 class="heading-xs">还差<?= $credit['need-credits']?>点积分就升级啦!<span
+											class="pull-right"><?= $credit['next-level-info']?></span>
 									</h3>
 
 									<div class="progress progress-u progress-xxs">
-										<div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67"
+										<div style="width: <?= $credit['current-percent']?>%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67"
 											 role="progressbar" class="progress-bar progress-bar-light">
 										</div>
 									</div>
-									<small><strong>Lv.0</strong></small>
+									<small><strong><?=$credit['vip-level'] ?></strong></small>
 								</div>
 							</div>
 						</div>
