@@ -29,7 +29,7 @@ use yii\helpers\Url;
 					<div class="topbar-toggler"><span class="fa fa-angle-down"></span></div>
 					<ul class="topbar-list topbar-menu">
 						<li><a href="<?= Url::to(['/site/index']) ?>">首页</a></li>
-						<li><a href="#">联系我们</a></li>
+						<li><a href="<?= Url::to('/page/mian-ze-sheng-ming')?>">免责声明</a></li>
 						<li><a href="<?= Yii::getAlias('@bbsUrl') ?>" target="_blank">论坛</a></li>
 						<?php if (Yii::$app->user->isGuest): ?>
 							<li class="cd-log_reg hidden-sm hidden-md hidden-lg"><strong><a class="cd-signin"

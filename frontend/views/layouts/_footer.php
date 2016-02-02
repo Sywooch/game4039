@@ -26,26 +26,33 @@ use common\util\Buuug7Util;
 						<?php endforeach; ?>
 					</ul>
 					<!-- End Frirend Links -->
+
+					<!-- Frirend Links -->
+					<div style="margin-top: 30px;">
+						<div class="headline"><h2>网络监管</h2></div>
+						<ul class="list-unstyled">
+							<a href="<?= Url::to('/page/jia-zhang-jian-hu-gong-cheng')?>" style="">家长监护工厂</a>
+							<a href="<?= Yii::$app->keyStorage->get('adverse_information_report_url')?>" target="_blank" style="margin-left: 5px;">不良信息举报</a>
+						</ul>
+					</div>
+
+					<!-- End Frirend Links -->
 				</div>
 				<!--/col-md-4-->
 
 				<div class="col-md-4 md-margin-bottom-40">
 					<!-- Recent Blogs -->
-					<div class="posts">
+					<div class="posts news-my-override">
 						<div class="headline"><h2>最新资讯</h2></div>
-						<dl class="dl-horizontal">
+						<ul class="list-unstyled link-news">
+
 							<?php foreach (Buuug7Util::getRecentArticles() as $article): ?>
-								<dt><a href="#"><?= Html::img(Yii::$app->glide->createSignedUrl([
-											'glide/index',
-											'path' => $article->thumbnail_path,
-											'w' => 100
-										], true)) ?></a>
-								</dt>
-								<dd>
-									<p><a href="#"><?= StringHelper::truncate($article->description, 25) ?></a></p>
-								</dd>
+								<li>
+									<a href="<?= Url::to(['article/view', 'slug' => $article->slug]) ?>"><?= StringHelper::truncate($article->title, 25) ?></a>
+									<small><?= Yii::$app->formatter->asDate($article->published_at)?></small>
+								</li>
 							<?php endforeach; ?>
-						</dl>
+						</ul>
 					</div>
 					<!-- End Recent Blogs -->
 				</div>
@@ -64,9 +71,10 @@ use common\util\Buuug7Util;
 
 					<!-- Social Links -->
 					<div class="headline"><h2>保持联络</h2></div>
-					<ul class="social-icons">
-						<li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
-						<li><a href="#" data-original-title="vKontakte" class="social_vk"></a></li>
+					<ul class="social-font-awesome clearfix ">
+						<li><a href=""><i class="fa fa-lg fa-qq"></i></a></li>
+						<li><a href=""><i class="fa fa-lg fa-weibo"></i></a></li>
+						<li><a href=""><i class="fa fa-lg fa-wechat"></i></a></li>
 					</ul>
 					<!-- End Social Links -->
 				</div>

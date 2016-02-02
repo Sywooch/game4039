@@ -19,7 +19,7 @@ use yii\bootstrap\ActiveForm;
     <?php echo $form->field($model, 'body')->widget(
         \yii\imperavi\Widget::className(),
         [
-            'plugins' => ['fullscreen', 'fontcolor', 'video'],
+            'plugins' => ['fullscreen', 'fontcolor', 'video','fontsize','fontfamily'],
             'options'=>[
                 'lang' => 'zh',
                 'minHeight'=>400,

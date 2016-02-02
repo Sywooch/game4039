@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="col-lg-6 checkbox">
 					<label>
 						<input type="checkbox">
-						我已经阅读 <a href="" class="color-green">注册须知</a>
+						我已经阅读 <a href="<?= Url::to('/page/yong-hu-zhu-ce-xu-zhi')?>" class="color-green">注册须知</a>
 					</label>
 				</div>
 				<div class="col-lg-6 text-right">
