@@ -37,7 +37,7 @@ use yii\helpers\Url;
 			</h2>
 
 			<p><?php echo \yii\helpers\StringHelper::truncate($model->description, 100, '...', null, true) ?></p>
-			<ul class="post-shares">
+			<ul class="post-shares post-shares-lg">
 				<li>
 					<a href="#">
 						<i class="rounded-x icon-eye"></i>
