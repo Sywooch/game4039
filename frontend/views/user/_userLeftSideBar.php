@@ -8,6 +8,7 @@
  */
 use yii\helpers\Url;
 
+$this->title = "用户中心";
 ?>
 
 <!--user left avatar-->
@@ -27,13 +28,13 @@ use yii\helpers\Url;
 		<a href="<?= Url::to('/user/profile/user-history') ?>"><i class="fa fa-gamepad"></i> 我的游戏</a>
 	</li>
 	<li class="list-group-item user-credits">
-		<a href="<?= Url::to('/user/profile/credits')?>"><i class="fa fa-database"></i> 我的积分</a>
+		<a href="<?= Url::to('/user/profile/credits') ?>"><i class="fa fa-database"></i> 我的积分</a>
 	</li>
 	<li class="list-group-item user-message">
-		<a href="<?= Url::to('/user/profile/user-message')?>"><i class="fa fa-envelope"></i> 我的消息</a>
+		<a href="<?= Url::to('/user/profile/user-message') ?>"><i class="fa fa-envelope"></i> 我的消息</a>
 	</li>
 	<li class="list-group-item">
-		<a href="<?= Url::to(['/product/my-order'])?>"><i class="fa fa-shopping-cart"></i> 我的订单</a>
+		<a href="<?= Url::to(['/product/my-order']) ?>"><i class="fa fa-shopping-cart"></i> 我的订单</a>
 	</li>
 	<li class="list-group-item user-security-settings">
 		<a href="<?= Url::to('/user/settings/security-settings') ?>"><i class="fa fa-lock"></i> 账号安全</a>
@@ -56,7 +57,8 @@ use yii\helpers\Url;
 		 class="progress-bar progress-bar-u">
 	</div>
 </div>
-<a href="<?= Url::to('/user/settings/profile')?>" style="text-decoration:none"><h3 class="heading-xs">账号完整度 <span class="pull-right">85%</span></h3></a>
+<a href="<?= Url::to('/user/settings/profile') ?>" style="text-decoration:none"><h3 class="heading-xs">账号完整度 <span
+			class="pull-right">85%</span></h3></a>
 
 <div class="progress progress-u progress-xxs">
 	<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar"
