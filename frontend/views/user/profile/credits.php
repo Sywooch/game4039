@@ -9,11 +9,12 @@
 
 use frontend\models\Credits;
 
-$credit=(new Credits())->getUserVipLevelByCredit($dzUser['credits']);
+//myVarDump((new \frontend\models\Credits())->getMaxMinGrowthByVipLevel('VIP0')['min']);
+
+$credit = (new Credits())->getUserVipLevelByCredit($dzUser['credits']);
 
 $this->title = '用户积分';
 
-//myVarDump((new \frontend\models\Credits())->getUserVipLevelByCredit($dzUser['credits']));
 
 ?>
 <div class="container content">
@@ -40,16 +41,22 @@ $this->title = '用户积分';
 								<div class="clearfix margin-bottom-10"></div>
 
 								<div class="statistics">
-									<h3 class="heading-xs">还差<?= $credit['need-credits']?>点积分就升级啦!<span
-											class="pull-right"><?= $credit['next-level-info']?></span>
+									<h3 class="heading-xs">
+										<?php if ($credit['vip-level'] == 'VIP9'): ?>
+											<strong>恭喜,您已经成为TOP VIP了,在无法升级了!</strong>
+										<?php else: ?>
+											<strong>还差<span style=""><?= $credit['need-growth-value'] ?></span>点成长值就升级啦!</strong>
+										<?php endif; ?>
+										<span class="pull-right"><?= $credit['next-level-info'] ?></span>
 									</h3>
 
 									<div class="progress progress-u progress-xxs">
-										<div style="width: <?= $credit['current-percent']?>%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67"
+										<div style="width: <?= $credit['current-percent'] ?>%" aria-valuemax="100"
+											 aria-valuemin="0" aria-valuenow="67"
 											 role="progressbar" class="progress-bar progress-bar-light">
 										</div>
 									</div>
-									<small><strong><?=$credit['vip-level'] ?></strong></small>
+									<small><strong><?= $credit['vip-level'] ?></strong></small>
 								</div>
 							</div>
 						</div>
@@ -59,6 +66,7 @@ $this->title = '用户积分';
 							<blockquote class="">
 								<h5>常见问题</h5>
 								<h5><a href="">什么是积分？</a></h5>
+								<h5><a href="">什么是成长值？</a></h5>
 								<h5><a href="">如何查询我的积分？</a></h5>
 								<h5><a href="">积分如何使用？</a></h5>
 							</blockquote>

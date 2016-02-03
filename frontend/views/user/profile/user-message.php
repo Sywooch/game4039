@@ -8,6 +8,8 @@
  */
 
 $this->title = "我的消息";
+
+//myVarDump(\common\models\Message::deleteMessageByUserId(6, 3));
 ?>
 
 <!--frofile-->
@@ -31,6 +33,8 @@ $this->title = "我的消息";
 						<div class="panel-body margin-bottom-50">
 							<?php foreach ($dataProvider->models as $model): ?>
 								<div class="media media-v2">
+									<div class="close" style="margin-right: 1px;margin-top: -25px;"><i
+											class="fa fa-close"></i></div>
 									<div class="media-body">
 										<h4 class="media-heading">
 											<strong><a href="#"><?= $model->title ?></a></strong>

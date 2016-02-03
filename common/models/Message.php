@@ -19,6 +19,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $created_at
  * @property integer $updated_at
  * @property integer $status
+ * @property integer $deleted
  */
 class Message extends \yii\db\ActiveRecord
 {
@@ -53,7 +54,7 @@ class Message extends \yii\db\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['content', 'receive', 'unread'], 'string'],
+			[['content', 'receive', 'unread', 'deleted'], 'string'],
 			[['status', 'title'], 'required'],
 			[['created_at', 'updated_at', 'status'], 'integer'],
 			[['title', 'sender'], 'string', 'max' => 255]
@@ -75,6 +76,7 @@ class Message extends \yii\db\ActiveRecord
 			'created_at' => Yii::t('common', 'Created At'),
 			'updated_at' => Yii::t('common', 'Updated At'),
 			'status' => Yii::t('common', 'Status'),
+			'deleted' => Yii::t('common', 'Deleted'),
 		];
 	}
 
@@ -162,5 +164,30 @@ class Message extends \yii\db\ActiveRecord
 			return Yii::$app->db->createCommand()->update('{{%message}}', ['unread' => $unread], ['id' => $messageId])->execute();
 		}
 		return 0;
+	}
+
+	public static function deleteMessageByUserId($messageId, $userId)
+	{
+		//读取数据库中deleted字段值
+		$message = Message::find()->where(['id' => $messageId])->one();
+		$deleted = $message->deleted;
+
+		//如果deleted字段不等于null
+		if ($deleted)
+		{
+			$deleted = explode(',', $deleted);
+			//如果已删除字段在deleted字段中,则跳过
+			if (in_array($userId, $deleted))
+			{
+				return true;
+			} else
+			{
+				$deleted .= ',' . $userId;
+			}
+		} else
+		{
+			$deleted = $userId;
+		}
+		return $deleted;
 	}
 }
