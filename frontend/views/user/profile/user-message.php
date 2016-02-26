@@ -6,10 +6,13 @@
  * Time: 16:46
  * Desc:
  */
+use yii\bootstrap\Modal;
 
 $this->title = "我的消息";
 
-//myVarDump(\common\models\Message::deleteMessageByUserId(6, 3));
+
+//myVarDump(\common\models\Message::deleteMessageByUserId(7, 223));
+//myVarDump($dataProvider->getModels());
 ?>
 
 <!--frofile-->
@@ -33,8 +36,10 @@ $this->title = "我的消息";
 						<div class="panel-body margin-bottom-50">
 							<?php foreach ($dataProvider->models as $model): ?>
 								<div class="media media-v2">
-									<div class="close" style="margin-right: 1px;margin-top: -25px;"><i
-											class="fa fa-close"></i></div>
+									<div class="close" style="margin-right: 1px;margin-top: -25px;">
+										<a href=<?= "javascript:deleteMessage(".$model->id.")"?>><i
+												class="fa fa-close" id="<?= $model->id ?>"></i></a>
+									</div>
 									<div class="media-body">
 										<h4 class="media-heading">
 											<strong><a href="#"><?= $model->title ?></a></strong>
@@ -66,7 +71,6 @@ $this->title = "我的消息";
 
 <?php
 $js = <<<JS
-jQuery(document).ready(function() {
 //make user-nav active
 $('.index-nav').removeClass('active');
 $('.user-nav').addClass('active');
@@ -74,11 +78,35 @@ $('.user-nav').addClass('active');
 //make user-history sidebar nav active
 $('.user-message').addClass('active');
 
-        App.init();
-        //App.initCounter();
-        //App.initScrollBar();
-        //Datepicker.initDatepicker();
-    });
+App.init();
+//App.initCounter();
+//App.initScrollBar();
+//Datepicker.initDatepicker();
+
+//ajax删除用户的系统消息
+deleteMessage=function(args){
+	var messageId=args;
+	layer.confirm("你确定要删除该条消息?",{btn:['确定','取消']},
+		function(){
+       			$.ajax({
+       				url:'/user/profile/delete-user-message-by-user-id',
+       				type:'post',
+       				data:{
+       					messageId:messageId
+       				},
+       				success:function(data){
+       					var obj=$.parseJSON(data);
+       					console.log(obj);
+       					layer.msg(obj.msg);
+       					window.location.reload();
+       				}
+       			});
+       	},
+       	function(){
+       		//layer.msg('que')
+       	}
+    );
+};
 JS;
 $this->registerJs($js);
 ?>

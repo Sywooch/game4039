@@ -166,6 +166,12 @@ class Message extends \yii\db\ActiveRecord
 		return 0;
 	}
 
+	/**
+	 * 删除消息,根据用户id,消息id从message表中标记特定用户已经删除的消息
+	 * @param $messageId
+	 * @param $userId
+	 * @return bool
+	 */
 	public static function deleteMessageByUserId($messageId, $userId)
 	{
 		//读取数据库中deleted字段值
@@ -175,9 +181,9 @@ class Message extends \yii\db\ActiveRecord
 		//如果deleted字段不等于null
 		if ($deleted)
 		{
-			$deleted = explode(',', $deleted);
+			$deletedArr = explode(',', $deleted);
 			//如果已删除字段在deleted字段中,则跳过
-			if (in_array($userId, $deleted))
+			if (in_array($userId, $deletedArr))
 			{
 				return true;
 			} else
@@ -188,6 +194,11 @@ class Message extends \yii\db\ActiveRecord
 		{
 			$deleted = $userId;
 		}
-		return $deleted;
+		//更新message中的deleted字段
+		$message->deleted=(string)$deleted;
+		if(!$message->save()){
+			myVarDump($message->getErrors());
+		}
+		return $message->save();
 	}
 }
