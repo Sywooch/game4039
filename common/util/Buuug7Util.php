@@ -14,6 +14,8 @@ use common\models\ShopProduct;
 use common\models\UserHistory;
 use common\models\UserSecurityQuestions;
 use dektrium\user\models\User;
+use common\models\KefuFaq;
+use common\models\KefuFaqCat;
 
 /**
  * Created by PhpStorm.
@@ -206,5 +208,17 @@ class Buuug7Util
 			$query->andWhere(['category_id' => $cat]);
 		}
 		return $query->count();
+	}
+
+
+	/**
+	 * 通过客服常用问题分类的slug获取该分类下的所有数据
+	 * @param $categorySlug 客服常用问题分类slug
+	 * @param $limit	限制返回的数据个数
+	 * @return array|\yii\db\ActiveRecord[]
+	 */
+	public static function getKefuFaqbyCategorySlug($categorySlug,$limit){
+		$qiTaWenTis=KefuFaq::find()->where(['status' => KefuFaq::STATUS_IN_USE,'category_id' => KefuFaqCat::findOne(['slug' => $categorySlug])['id']])->orderBy("created_at DESC")->limit($limit)->all();
+		return $qiTaWenTis;
 	}
 }
