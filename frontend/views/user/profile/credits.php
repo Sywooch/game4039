@@ -52,7 +52,7 @@ $this->title = '用户积分';
 
 									<div class="progress progress-u progress-xxs">
 										<div style="width: <?= $credit['current-percent'] ?>%" aria-valuemax="100"
-											 aria-valuemin="0" aria-valuenow="67"
+											 aria-valuemin="0" aria-valuenow="<?= $credit['current-percent'] ?>"
 											 role="progressbar" class="progress-bar progress-bar-light">
 										</div>
 									</div>

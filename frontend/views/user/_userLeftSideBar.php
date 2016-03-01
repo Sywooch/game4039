@@ -9,6 +9,13 @@
 use yii\helpers\Url;
 
 $this->title = "用户中心";
+
+//用户vip
+$dzUserLeftBar = (new \common\util\DzHelper())->getDzUserByUsername(Yii::$app->user->identity->username);
+$creditLeftBar = (new \frontend\models\Credits())->getUserVipLevelByCredit($dzUserLeftBar['credits']);
+
+//用户账号完善度
+$userAccountPerfect=(new \frontend\models\UserAccountPerfectDegree(YIi::$app->user->identity->getId()))->getUserAccountPerfectDegree();
 ?>
 
 <!--user left avatar-->
@@ -50,18 +57,24 @@ $this->title = "用户中心";
 	<h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> 进度条</h2>
 	<a href="#"><i class="fa fa-cog pull-right"></i></a>
 </div>
-<h3 class="heading-xs">Vip经验 <span class="pull-right">2</span></h3>
+<h3 class="heading-xs">
+	<a href="<?= Url::to('/user/profile/credits') ?>" style="text-decoration: none;">Vip经验</a>
+	<span class="pull-right" style="font-size: 12px;"><?= $creditLeftBar['next-level-info'] ?></span>
+</h3>
 
 <div class="progress progress-u progress-xxs">
-	<div style="width: 35%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="35" role="progressbar"
+	<div style="width: <?= $creditLeftBar['current-percent'] ?>%" aria-valuemax="100" aria-valuemin="0"
+		 aria-valuenow="<?= $creditLeftBar['current-percent'] ?>" role="progressbar"
 		 class="progress-bar progress-bar-u">
 	</div>
 </div>
-<a href="<?= Url::to('/user/settings/profile') ?>" style="text-decoration:none"><h3 class="heading-xs">账号完整度 <span
-			class="pull-right">85%</span></h3></a>
+<h3 class="heading-xs">
+	<a href="<?= Url::to('/user/settings/profile') ?>" style="text-decoration:none">账号完整度</a>
+	<span class="pull-right"><?= $userAccountPerfect?>%</span>
+</h3>
 
 <div class="progress progress-u progress-xxs">
-	<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar"
+	<div style="width: <?= $userAccountPerfect?>%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="<?= $userAccountPerfect?>" role="progressbar"
 		 class="progress-bar progress-bar-blue">
 	</div>
 </div>
