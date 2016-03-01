@@ -89,7 +89,7 @@ $this->title = '活动';
 
 
 <?php
-\frontend\assets\HandlebarsAsset::register($this);
+//\frontend\assets\HandlebarsAsset::register($this);
 $js = <<<JS
 jQuery(document).ready(function() {
     //make user-nav active

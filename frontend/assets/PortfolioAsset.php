@@ -20,7 +20,9 @@ class PortfolioAsset extends AssetBundle
 	public $css = [
 		//portfolio add css
 		'unify/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css',
-		'unify/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css',
+
+		//为了减少引入css太多的问题,已经将其转移到custom.css文件中了
+		//'unify/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css',
 	];
 
 	public $js = [

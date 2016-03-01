@@ -21,7 +21,7 @@ class SliderAsset extends AssetBundle
 	public $css = [
 		//slider add css
 		//'unify/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css',
-		'unify/assets/plugins/revolution-slider/rs-plugin/css/settings.css',
+		'unify/assets/plugins/revolution-slider/rs-plugin/css/settings.min.css',
 	];
 
 	public $js = [

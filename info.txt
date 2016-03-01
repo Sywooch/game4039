@@ -80,3 +80,19 @@ VIP9	成长值>=30,000,000
 论坛积分跟成长值兑换比例 1:x
 暂时定义为1:10,也就是
 credits-growth-value-rate=10
+
+
+//前台用的到资源文件整理
+css文件:
+bootstrap.css
+unify/assets/css/style.css
+unify/assets/css/headers/header-v8.css
+unify/assets/css/footers/footer-default.css
+unify/assets/plugins/line-icons/line-icons.css
+unify/assets/plugins/font-awesome/css/font-awesome.css
+unify/assets/css/theme-colors/teal.css
+unify/assets/css/custom.css
+
+unify/assets/plugins/revolution-slider/rs-plugin/css/settings.css
+unify/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css
+unify/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css
