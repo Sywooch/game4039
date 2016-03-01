@@ -18,18 +18,39 @@ use common\models\ShopOrderItem;
 use common\models\ShopProduct;
 use common\util\DzHelper;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
 class ProductController extends Controller
 {
 
+	public function behaviors()
+	{
+		return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					['allow' => true, 'actions' => ['dui-huan','shi-wu-order','my-order','my-order-delete'], 'roles' => ['@']],
+					['allow' => true, 'actions' => ['list','index','view'], 'roles' => ['?', '@']],
+				],
+			],
+		];
+	}
+
+
+	/**
+	 * 商城首页action
+	 * @return string
+	 */
 	public function actionIndex()
 	{
 		return $this->render('index');
 	}
 
+	/**
+	 * 商城商品分类action
+	 * @return string
+	 */
 	public function actionList()
 	{
 		$searchModel = new ShopProductSearch();
@@ -43,6 +64,12 @@ class ProductController extends Controller
 		return $this->render('list', ['dataProvider' => $dataProvider]);
 	}
 
+
+	/**
+	 * 商城商品详情action
+	 * @param $slug
+	 * @return string
+	 */
 	public function actionView($slug)
 	{
 		$model = ShopProduct::find()->statusInUseAndOnSale()->andWhere(['slug' => $slug])->one();
@@ -56,10 +83,7 @@ class ProductController extends Controller
 
 	public function actionDuiHuan()
 	{
-		if (\Yii::$app->user->isGuest)
-		{
-			$this->redirect('/user/security/login');
-		}
+
 		$post = \Yii::$app->request->post();
 
 		$user = \Yii::$app->user->identity;
@@ -107,10 +131,6 @@ class ProductController extends Controller
 
 	public function actionShiWuOrder($slug)
 	{
-		if (\Yii::$app->user->isGuest)
-		{
-			$this->redirect('/user/security/login');
-		}
 		$shopOrder = new ShopOrder();
 		$shopProducts = ShopProduct::findOne(['slug' => $slug]);
 		//myVarDump($shopOrder->validate());
@@ -153,17 +173,17 @@ class ProductController extends Controller
 
 	public function actionMyOrder($status = null)
 	{
-		if (\Yii::$app->user->isGuest)
-		{
-			$this->redirect('/user/security/login');
-		}
-
 		$searchModel = new ShopOrderSearch();
 		$dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
 
 		$dataProvider->query->andFilterWhere(['user_id' => \Yii::$app->user->getId()]);
 		$dataProvider->pagination = [
 			'pageSize' => 10,
+		];
+		$dataProvider->sort = [
+			'defaultOrder' => [
+				'created_at' => SORT_DESC
+			]
 		];
 
 		return $this->render('my-order', [
