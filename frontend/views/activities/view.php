@@ -4,9 +4,9 @@
  * User: buuug7
  * Date: 2015/12/30
  * Time: 16:43
- * Desc:
+ * Desc: 活动->单页
  */
-//myVarDump($model);
+
 $this->title = $model->title;
 ?>
 

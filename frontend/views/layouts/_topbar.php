@@ -34,7 +34,7 @@ use yii\helpers\Url;
 						<li><a href="<?= Yii::getAlias('@bbsUrl') ?>" target="_blank">论坛</a></li>
 						<?php if (!Yii::$app->user->isGuest): ?>
 							<?php if (Yii::$app->user->identity->username === 'buuug7'): ?>
-								<li><a href="<?= Url::to('/user/admin') ?>" target="_blank">用户管理</a></li>
+								<li><a href="<?= Url::to('/user/admin') ?>" target="_blank" style="color:red;">用户管理</a></li>
 							<?php endif; ?>
 						<?php endif; ?>
 						<?php if (Yii::$app->user->isGuest): ?>

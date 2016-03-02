@@ -4,7 +4,6 @@
  * @var $model common\models\Article
  */
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 ?>
 
@@ -39,7 +38,7 @@ use yii\helpers\Url;
 			<p><?php echo \yii\helpers\StringHelper::truncate($model->description, 100, '...', null, true) ?></p>
 			<ul class="post-shares post-shares-lg">
 				<li>
-					<a href="#">
+					<a href="javascript:void(0);">
 						<i class="rounded-x icon-eye"></i>
 						<span>
 							<?php
@@ -56,7 +55,7 @@ use yii\helpers\Url;
 				</li>
 				<li><a href="javascript:void(0)"><i class="rounded-x icon-share share<?= $model->id ?>"></i></a></li>
 				<li><a href="javascript:void(0)"><i
-							class="fa rounded-x fa-thumbs-up"></i><span><?= $model->stars ?></span></a></li>
+							class="rounded-x  icon-like like-click"></i><span><?= $model->stars ?></span></a></li>
 			</ul>
 			<div class="row">
 				<div class="col-md-12">
@@ -97,7 +96,6 @@ use yii\helpers\Url;
 </div>
 <?php
 $js = <<<JS
-$(function(){
 	//hide or show jia this share button
 	var flagShare=0;
 	$(".share{$model->id}").click(function(){
@@ -109,7 +107,6 @@ $(function(){
 			flagShare=0;
 		}
 	});
-});
 JS;
 
 $this->registerJs($js);

@@ -1,19 +1,12 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-$model->addClick();
-?>
 
-
-<?php
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
 
-/* @var $this yii\web\View */
-
+$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 $this->title = '资讯';
 ?>
 
@@ -55,7 +48,7 @@ $this->title = '资讯';
 									</a>
 								</li>
 								<li><a href="javascript::void (0)"><i
-											class="rounded-x  fa fa-thumbs-up thumbs-up<?= $model->id ?>"></i><span><?= $model->stars ?></span></a>
+											class="rounded-x  icon-like icon-like<?= $model->id ?>"></i><span><?= $model->stars ?></span></a>
 								</li>
 							</ul>
 							<div class="row">
@@ -122,19 +115,19 @@ $this->title = '资讯';
 		</div>
 	</div>
 
-
 <?php
-$js = <<<JS
-jQuery(document).ready(function() {
-//make user-nav active
-$('.index-nav').removeClass('active');
-$('.zixun-nav').addClass('active');
+//计数浏览次数
+$model->addClick();
 
-//collect users praise
-	$(".thumbs-up{$model->id}").click(
+$js = <<<JS
+	//make user-nav active
+	$('.index-nav').removeClass('active');
+	$('.zixun-nav').addClass('active');
+	//collect users praise
+	$(".icon-like{$model->id}").click(
 		function(){
 			if($(this).hasClass('praised')){
-				alert('你已经点过赞啦!~');
+				layer.msg('你已经点过赞啦!~');
 			}else{
 				$.ajax({
 					url:'/article/add-stars',
@@ -146,15 +139,13 @@ $('.zixun-nav').addClass('active');
 						nodeCurrent.addClass('praised');
 						nodeCurrent.css({"background":"#fff"});
 						nodeCurrent.next().text(parseInt(nodeCurrent.next().text())+1);
-						alert('点赞成功!~@~');
+						layer.msg('点赞成功!~@~');
 					}
 				});
 			}
 		}
 	);
-
-        App.init();
-    });
+   App.init();
 JS;
 $this->registerJs($js);
 ?>

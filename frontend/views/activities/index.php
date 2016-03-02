@@ -4,7 +4,7 @@
  * User: buuug7
  * Date: 2015/12/29
  * Time: 14:28
- * Desc:
+ * Desc: 活动首页
  */
 
 use yii\helpers\Url;
