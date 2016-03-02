@@ -107,13 +107,13 @@ $this->title = Yii::$app->name;
 											<div class="cbp-l-caption-alignCenter">
 												<div class="cbp-l-caption-body">
 													<ul class="link-captions no-bottom-space">
-														<li><a href="">
+														<li><a href="<?= Url::to(['/game/view', 'slug' => $games->slug]) ?>">
 																<button class="btn-u btn-u-xs btn-u-blue"
 																		type="button">
 																	进入游戏
 																</button>
 															</a></li>
-														<li><a href="" class="cbp-lightbox"
+														<li><a href="javascript:void(0);" class=""
 															   data-title="Design Object">
 																<button class="btn-u btn-u-xs btn-u-red"
 																		type="button">
@@ -146,13 +146,13 @@ $this->title = Yii::$app->name;
 											<div class="cbp-l-caption-alignCenter">
 												<div class="cbp-l-caption-body">
 													<ul class="link-captions no-bottom-space">
-														<li><a href="">
+														<li><a href="<?= Url::to(['/game/view', 'slug' => $games->slug]) ?>">
 																<button class="btn-u btn-u-xs btn-u-blue"
 																		type="button">
 																	进入游戏
 																</button>
 															</a></li>
-														<li><a href="" class="cbp-lightbox"
+														<li><a href="" class=""
 															   data-title="Design Object">
 																<button class="btn-u btn-u-xs btn-u-red"
 																		type="button">
@@ -309,9 +309,7 @@ $this->title = Yii::$app->name;
 
 <?php
 $js = <<<JS
-jQuery(document).ready(function() {
     App.init();
-    //OwlCarousel.initOwlCarousel();
 
     //revolution slide
     var RevolutionSlider = function() {
@@ -353,15 +351,12 @@ jQuery(document).ready(function() {
     }();
     RevolutionSlider.initRSfullWidth();
 
-
     //cube init
     (function($, window, document, undefined) {
         'use strict';
-
         var gridContainer = $('#grid-container'),
             filtersContainer = $('#filters-container'),
             wrap, filtersCallback;
-
 
         //init cubeportfolio
         gridContainer.cubeportfolio({
@@ -441,9 +436,7 @@ jQuery(document).ready(function() {
                 }
             }
         });
-
     })(jQuery, window, document);
-});
 JS;
 $this->registerJs($js);
 ?>

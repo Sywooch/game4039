@@ -12,6 +12,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use yii\captcha\Captcha;
 
 /**
  * @var yii\web\View              $this
@@ -37,12 +38,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $this->endBlock(); ?>
 <div class="container content">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 
 			<?php $form = ActiveForm::begin([
 				'id'                     => 'registration-form',
-				'enableAjaxValidation'   => true,
-				'enableClientValidation' => false,
+				'enableAjaxValidation'   => false,
+				'enableClientValidation' => true,
 				'options' => [
 					'class' => 'reg-page',
 				],
@@ -59,6 +60,10 @@ $this->params['breadcrumbs'][] = $this->title;
 			<?php if ($module->enableGeneratingPassword == false): ?>
 				<?= $form->field($model, 'password')->passwordInput() ?>
 			<?php endif ?>
+
+			<?= $form->field($model, 'captcha')->widget(Captcha::className(), [
+				'captchaAction' => ['/site/captcha']
+			]) ?>
 
 			<hr>
 

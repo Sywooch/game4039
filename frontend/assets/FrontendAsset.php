@@ -38,7 +38,7 @@ class FrontendAsset extends AssetBundle
 		 * CSS Implementing Plugins
 		 * */
 		//'unify/assets/plugins/animate.css',
-		//'unify/assets/plugins/line-icons/line-icons.css',
+		'unify/assets/plugins/line-icons/line-icons.css',
 		'unify/assets/plugins/font-awesome/css/font-awesome.min.css',
 
 		/*
@@ -57,7 +57,7 @@ class FrontendAsset extends AssetBundle
 		//'unify/assets/css/theme-colors/orange.css',
 		//'unify/assets/css/theme-colors/purple.css',
 		//'unify/assets/css/theme-colors/red.css',
-		//'unify/assets/css/theme-colors/teal.css',
+		'unify/assets/css/theme-colors/teal.css',
 
 		/*
 		 * CSS Implementing Plugins

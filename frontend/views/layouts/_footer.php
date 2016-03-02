@@ -22,7 +22,7 @@ use common\util\Buuug7Util;
 					<div class="headline"><h2><?= Yii::t('common', 'Friend Links') ?></h2></div>
 					<ul class="list-unstyled">
 						<?php foreach (Buuug7Util::getLinks() as $links): ?>
-							<a href="#"><?= $links->name ?></a>
+							<a href="<?= $links->url?>" target="_blank"><?= $links->name ?></a>
 						<?php endforeach; ?>
 					</ul>
 					<!-- End Frirend Links -->

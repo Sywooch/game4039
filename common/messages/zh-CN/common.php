@@ -299,4 +299,9 @@ return [
 	'Status Active' => '可用',
 	'Status Deleted' => '已删除',
 	'All Site User' => '全站用户',
+	'Thank you for contacting us. We will respond to you as soon as possible.' => '感谢您联系我们,我们将尽快回复您.',
+	'Submit' => '确认',
+	'Verification Code' => '验证码',
+	'captcha' => '验证码',
+	'Subject' => '主题',
 ];

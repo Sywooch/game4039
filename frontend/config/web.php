@@ -12,12 +12,14 @@ $config = [
 				'User' => 'frontend\models\User',
 				'Profile' => 'frontend\models\Profile',
 				'LoginForm' => 'frontend\models\LoginForm',
+				'RegistrationForm' => 'frontend\models\RegistrationForm',
 				'SettingsForm' => 'frontend\models\SettingsForm',
 			],
 			'controllerMap' => [
 				'profile' => 'frontend\controllers\user\ProfileController',
 				'settings' => 'frontend\controllers\user\SettingsController',
 				'security' => 'frontend\controllers\user\SecurityController',
+				//'register' => 'frontend\controllers\user\RegistrationController',
 			],
 			'mailer' => [
 				'sender' => ['youpp@126.com' => '4039页游平台'], // or ['no-reply@myhost.com' => 'Sender name']

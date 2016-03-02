@@ -50,12 +50,10 @@ $css = <<<CSS
 	padding-bottom: 30px;
 	text-align: center;
 }
-
 .error-v1 p {
 	color: #555;
 	font-size: 16px;
 }
-
 .error-v1 span {
 	color: #555;
 	display: block;
@@ -75,11 +73,9 @@ $css = <<<CSS
 	.error-v1 p {
 		font-size: 12px;
 	}
-
 	.error-v1 span {
 		font-size: 25px;
 	}
-
 	.error-v1 span.error-v1-title {
 		font-size: 140px;
 	}

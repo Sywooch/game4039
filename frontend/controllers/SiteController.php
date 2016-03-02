@@ -21,12 +21,14 @@ class SiteController extends Controller
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+				'minLength'       => 4,
+				'maxLength'       => 4,
             ],
             'set-locale'=>[
                 'class'=>'common\actions\SetLocaleAction',
                 'locales'=>array_keys(Yii::$app->params['availableLocales'])
-            ]
+            ],
         ];
     }
 
@@ -41,7 +43,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($model->contact(Yii::$app->params['adminEmail'])) {
                 Yii::$app->getSession()->setFlash('alert', [
-                    'body'=>Yii::t('frontend', 'Thank you for contacting us. We will respond to you as soon as possible.'),
+                    'body'=>Yii::t('common', 'Thank you for contacting us. We will respond to you as soon as possible.'),
                     'options'=>['class'=>'alert-success']
                 ]);
                 return $this->refresh();
