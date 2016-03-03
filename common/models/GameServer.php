@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\commands\command\AddToTimelineCommand;
 use common\models\query\GameServerQuery;
 use Yii;
 use yii\behaviors\SluggableBehavior;
@@ -135,4 +136,38 @@ class GameServer extends \yii\db\ActiveRecord
 			self::STATUS_IN_USE => Yii::t('common', 'In Use'),
 		];
 	}
+
+	public function afterSave($insert, $changedAttributes)
+	{
+		Yii::$app->commandBus->handle(new AddToTimelineCommand([
+			'category' => 'game-server',
+			'event' => 'save',
+			'data' => [
+				'created_by' => Yii::$app->user->identity->username,
+				'model_id' => $this->id,
+				'model_name' => $this->server_name,
+				'created_time' => $insert ? $this->created_at : $this->updated_at,
+				'method' => $insert ? 'insert' : 'update',
+			],
+		]));
+		parent::afterSave($insert, $changedAttributes);
+	}
+
+	public function afterDelete()
+	{
+		Yii::$app->commandBus->handle(new AddToTimelineCommand([
+			'category' => 'game-server',
+			'event' => 'delete',
+			'data' => [
+				'deleted_by' => Yii::$app->user->identity->username,
+				'model_id' => $this->id,
+				'model_name' => $this->server_name,
+				'method' => 'deleted',
+				'time' => time(),
+			],
+		]));
+		parent::afterDelete();
+	}
+
+
 }

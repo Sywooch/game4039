@@ -14,7 +14,7 @@
         <?php echo Yii::t('common', 'an admin user was deleted!') ?>
     </h3>
 
-    <div class="timeline-body">
+    <div class="timeline-body text-danger">
         <?php echo Yii::t('common', '{delete_time} : admin ({identity}) was deleted by {by_user}', [
             'identity' => $model->data['public_identity'],
 			'by_user' => $model->data['by_user'],

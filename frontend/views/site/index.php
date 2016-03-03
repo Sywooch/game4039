@@ -268,7 +268,7 @@ $this->title = Yii::$app->name;
 						<p class="">这里是最新开服的页游,欢迎体验</p>
 						<ul class="list-unstyled">
 							<?php foreach (Buuug7Util::getStatusInUseGameServer() as $servers): ?>
-								<li><a href="#"><i class="fa fa-circle"></i><?= $servers->server_name ?></a></li>
+								<li><a href="<?= Url::to(['/game/view','slug' => $servers->game->slug,])?>"><i class="fa fa-circle"></i><?= $servers->server_name ?></a></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>

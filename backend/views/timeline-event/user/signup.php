@@ -14,7 +14,7 @@
         <?php echo Yii::t('backend', 'You have new user!') ?>
     </h3>
 
-    <div class="timeline-body">
+    <div class="timeline-body text-success">
         <?php echo Yii::t('backend', 'New user ({identity}) was registered at {created_at}', [
             'identity' => $model->data['public_identity'],
             'created_at' => Yii::$app->formatter->asDatetime($model->data['created_at'])

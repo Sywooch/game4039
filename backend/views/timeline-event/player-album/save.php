@@ -17,7 +17,7 @@
 		<?php echo Yii::t('common', 'a new user album was created!') ?>
 	</h3>
 
-	<div class="timeline-body">
+	<div class="timeline-body text-primary">
 		<?php echo Yii::t('common', '{created_time} : {created_by} created a new user album', [
 			'created_time' => Yii::$app->formatter->asDatetime($model->data['created_time']),
 			'created_by' => $model->data['created_by'],

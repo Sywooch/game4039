@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\commands\command\AddToTimelineCommand;
 use common\models\query\GameQuery;
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
@@ -121,7 +122,7 @@ class Game extends \yii\db\ActiveRecord
 			[['description'], 'string'],
 			[['name', 'short', 'api_key', 'factory', 'cname', 'coin', 'game_web_url', 'game_bbs_url', 'api_secret', 'api_server', 'api_play', 'api_pay', 'api_check', 'api_order', 'slug'], 'string', 'max' => 255],
 			[['thumbnail_base_url', 'thumbnail_path', 'bg_image_base_url', 'bg_image_path'], 'string', 'max' => 1024],
-			[['thumbnail','bg_image'], 'safe'],
+			[['thumbnail', 'bg_image'], 'safe'],
 		];
 	}
 
@@ -157,7 +158,7 @@ class Game extends \yii\db\ActiveRecord
 			'created_at' => Yii::t('common', 'Created At'),
 			'updated_at' => Yii::t('common', 'Updated At'),
 			'status' => Yii::t('common', 'Status'),
-			'sort' => Yii::t('common','Sort'),
+			'sort' => Yii::t('common', 'Sort'),
 			'bg_image_base_url' => Yii::t('common', 'Background Image Base URL'),
 			'bg_image_path' => Yii::t('common', 'Background Image Path'),
 			'bg_image' => Yii::t('common', 'Bg Image'),
@@ -211,4 +212,39 @@ class Game extends \yii\db\ActiveRecord
 	{
 		return $this->bg_image_base_url . '/' . $this->bg_image_path;
 	}
+
+	public function afterSave($insert, $changedAttributes)
+	{
+		Yii::$app->commandBus->handle(new AddToTimelineCommand([
+			'category' => 'game',
+			'event' => 'save',
+			'data' => [
+				'created_by' => Yii::$app->user->identity->username,
+				'model_id' => $this->id,
+				'model_name' => $this->name,
+				'created_time' => $insert ? $this->created_at : $this->updated_at,
+				'method' => $insert ? 'insert' : "update",
+			]
+		]));
+
+		parent::afterSave($insert, $changedAttributes);
+	}
+
+	public function afterDelete()
+	{
+		Yii::$app->commandBus->handle(new AddToTimelineCommand([
+			'category' => 'game',
+			'event' => 'delete',
+			'data' => [
+				'deleted_by' => Yii::$app->user->identity->username,
+				'model_id' => $this->id,
+				'model_name' => $this->name,
+				'method' => 'deleted',
+				'time' => time(),
+			],
+		]));
+		parent::afterDelete();
+	}
+
+
 }
