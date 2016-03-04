@@ -17,11 +17,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-	<p>
-		<?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-			'modelClass' => Yii::t('common', 'Kefu Selfservice'),
-		]), ['create'], ['class' => 'btn btn-success']) ?>
-	</p>
+	<?php if (Yii::$app->user->can('administrator')): ?>
+		<p>
+			<?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+				'modelClass' => Yii::t('common', 'Kefu Selfservice'),
+			]), ['create'], ['class' => 'btn btn-success']) ?>
+		</p>
+	<?php endif; ?>
 
 	<?php echo GridView::widget([
 		'dataProvider' => $dataProvider,
@@ -63,7 +65,24 @@ $this->params['breadcrumbs'][] = $this->title;
 				'enum' => KefuSelfservice::getStatus(),
 			],
 
-			['class' => 'yii\grid\ActionColumn'],
+			[
+				'class' => 'yii\grid\ActionColumn',
+				'template' => '{view} {update} {result} {delete}',
+				'buttons' => [
+					'result' => function ($url, $model, $key)
+					{
+						if ($model->status == KefuSelfservice::STATUS_YICHULI)
+						{
+							return "";
+						}
+						return Html::a('<span class="glyphicon glyphicon-check"></span>', ['/kefu-selfservice/result', 'id' => $model->id], [
+							'title' => Yii::t('common', 'check'),
+							'id' => 'check' . $model->id,
+						]);
+					},
+				],
+
+			],
 		],
 	]); ?>
 

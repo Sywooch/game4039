@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\KefuSelfServiceCheckForm;
 use common\models\KefuSelfserviceCat;
 use dektrium\user\models\User;
 use Yii;
@@ -88,7 +89,6 @@ class KefuSelfserviceController extends Controller
 	{
 		$model = $this->findModel($id);
 		$categories = KefuSelfserviceCat::find()->all();
-
 		if ($model->load(Yii::$app->request->post()) && $model->save())
 		{
 			return $this->redirect(['view', 'id' => $model->id]);
@@ -110,8 +110,26 @@ class KefuSelfserviceController extends Controller
 	public function actionDelete($id)
 	{
 		$this->findModel($id)->delete();
-
 		return $this->redirect(['index']);
+	}
+
+	public function actionResult($id)
+	{
+		$model = $this->findModel($id);
+
+		$modelCheckForm = new KefuSelfServiceCheckForm();
+		$modelCheckForm->_id = $id;
+		$modelCheckForm->result = $model->result;
+		$modelCheckForm->status = $model->status;
+		if ($modelCheckForm->load(Yii::$app->request->post()) && $modelCheckForm->save())
+		{
+			return $this->redirect(['view', 'id' => $id]);
+		}
+		return $this->render('check', [
+			'model' => $model,
+			'modelCheckForm' => $modelCheckForm,
+		]);
+
 	}
 
 	/**

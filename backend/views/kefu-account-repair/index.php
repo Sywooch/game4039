@@ -17,11 +17,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-	<p>
-		<?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-			'modelClass' => Yii::t('common', 'Kefu Account Repair'),
-		]), ['create'], ['class' => 'btn btn-success']) ?>
-	</p>
+	<?php if (Yii::$app->user->can('administrator')): ?>
+		<p>
+			<?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+				'modelClass' => Yii::t('common', 'Kefu Account Repair'),
+			]), ['create'], ['class' => 'btn btn-success']) ?>
+		</p>
+	<?php endif; ?>
+
 
 	<?php echo GridView::widget([
 		'dataProvider' => $dataProvider,

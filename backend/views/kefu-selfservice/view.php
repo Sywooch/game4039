@@ -68,7 +68,11 @@ $this->params['breadcrumbs'][] = $this->title;
 				'attribute' => 'status',
 				'value' => ArrayHelper::getValue(KefuSelfservice::getStatus(), $model->status)
 			],
-			'result:html',
+			[
+				'attribute'=>'result',
+				'format' => 'html',
+				'value'=>"<div style='color:red;font-size:1.25em;'>".$model->result."</div>"
+			],
 		],
 	]) ?>
 

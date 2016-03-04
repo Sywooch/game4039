@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use common\models\KefuSelfservice;
 
@@ -12,7 +11,9 @@ use common\models\KefuSelfservice;
 
 <div class="kefu-selfservice-form">
 
-	<?php $form = ActiveForm::begin(); ?>
+	<?php $form = \kartik\widgets\ActiveForm::begin([
+
+	]); ?>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -32,7 +33,7 @@ use common\models\KefuSelfservice;
 			'url' => ['/file-storage/upload'],
 			'sortable' => true,
 			'maxFileSize' => 10000000, // 10 MiB
-			'maxNumberOfFiles' => 5
+			'maxNumberOfFiles' => 5,
 		]);
 	?>
 
@@ -40,17 +41,17 @@ use common\models\KefuSelfservice;
 
 	<?php echo $form->field($model, 'user_id')->dropDownList(ArrayHelper::map(\dektrium\user\models\User::find()->all(), 'id', 'username'), ['prompt' => '']) ?>
 
-	<?php echo $form->field($model, 'status')->dropDownList(KefuSelfservice::getStatus()) ?>
+	<div class="result">
+		<h4>请在下面填写你的处理结果,点解'确认'按钮提交</h4>
+		<?php echo $form->field($model, 'result')->textarea(['rows' => 6]) ?>
 
-	<div style="border-bottom: 2px solid gray;margin-bottom: 10px;margin-top: 50px;"><h4>请在下面填写你的处理结果,点解'确认'按钮提交</h4>
+		<?php echo $form->field($model, 'status')->dropDownList(KefuSelfservice::getStatus()) ?>
 	</div>
-
-	<?php echo $form->field($model, 'result')->textarea(['rows' => 6]) ?>
 
 	<div class="form-group">
-		<?php echo Html::submitButton($model->isNewRecord ? Yii::t('common', 'Create') : Yii::t('common', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+		<?php echo Html::submitButton(Yii::t('common','Submit'), ['class' => 'btn btn-primary']) ?>
 	</div>
 
-	<?php ActiveForm::end(); ?>
+	<?php \kartik\widgets\ActiveForm::end(); ?>
 
 </div>

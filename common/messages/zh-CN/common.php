@@ -316,4 +316,6 @@ return [
 	'{created_time} : {deleted_by} game server ({model_name}) was deleted' => '{created_time} : {deleted_by} 游戏服务器 ({model_name}) 被删除',
 	'game ({model_name}) was deleted!' => '游戏 ({model_name}) 被删除',
 	'{created_time} : {deleted_by} game ({model_name}) was deleted' => '{created_time} : {deleted_by} 游戏 ({model_name}) 被删除',
+	'check' => '审核',
+	'The requested page does not exist.' => '您请求的页面不存在.',
 ];
