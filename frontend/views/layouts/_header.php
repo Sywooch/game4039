@@ -100,7 +100,7 @@ use yii\helpers\Url;
 
 						<!-- 充值 -->
 						<li class="dropdown chongzhi-nav">
-							<a href="<?= Url::to('/zhi-fu/index')?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to(['/zhi-fu/index'])?>" class="dropdown-toggle" data-toggle="">
 								充值
 							</a>
 						</li>

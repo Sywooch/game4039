@@ -1,3 +1,7 @@
+/* global settings */
+* {
+  font: 12px/1.5 "Microsoft Yahei", SimSun;
+}
 /*custom-cubeportfolio.css*/
 /*Cubeportfolio
 ------------------------------------*/
@@ -994,13 +998,6 @@
   color: #777;
 }
 /* override default header >a */
-body,
-button,
-input,
-select,
-textarea {
-  font: 12px/1.5 "Microsoft Yahei", SimSun;
-}
 .padding-top-0 {
   padding-top: 0;
 }
