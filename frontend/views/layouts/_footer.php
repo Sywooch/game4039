@@ -98,7 +98,7 @@ use common\util\Buuug7Util;
 				</div>
 				<div class="col-md-6">
 					<a href="<?= Url::to(['/site/index']) ?>">
-						<img class="pull-right" id="logo-footer" src="<?= Url::to(['@web/img/logo_4039.png']) ?>" alt="">
+						<img class="pull-right" id="logo-footer" src="<?= Url::to(['/img/logo_4039.png']) ?>" alt="">
 					</a>
 				</div>
 			</div>

@@ -20,7 +20,7 @@
 
 
 <?php
-$background=\yii\helpers\Url::to(['@web/img/kefuzhongxing-bg.jpg']);
+$background=\yii\helpers\Url::to(['/img/kefuzhongxing-bg.jpg']);
 $css = <<<CSS
 .breadcrumbs-v2 {
     text-align: center;
