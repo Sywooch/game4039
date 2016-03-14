@@ -31,7 +31,7 @@ use yii\helpers\Url;
 				</button>
 
 				<div class="navbar-brand">
-					<a class="logo" href="<?= Url::to('/site/index') ?>">
+					<a class="logo" href="<?= Url::to(['/site/index']) ?>">
 						<img src="<?= Url::to('@web/img/logo_4039_black.png') ?>" alt="Logo">
 					</a>
 				</div>
