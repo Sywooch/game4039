@@ -31,7 +31,7 @@ use common\util\Buuug7Util;
 					<div style="margin-top: 30px;">
 						<div class="headline"><h2>网络监管</h2></div>
 						<ul class="list-unstyled">
-							<a href="<?= Url::to('/page/jia-zhang-jian-hu-gong-cheng')?>" style="">家长监护工厂</a>
+							<a href="<?= Url::to(['page/jia-zhang-jian-hu-gong-cheng'])?>" style="">家长监护工厂</a>
 							<a href="<?= Yii::$app->keyStorage->get('adverse_information_report_url')?>" target="_blank" style="margin-left: 5px;">不良信息举报</a>
 						</ul>
 					</div>
@@ -98,7 +98,7 @@ use common\util\Buuug7Util;
 				</div>
 				<div class="col-md-6">
 					<a href="<?= Url::to(['/site/index']) ?>">
-						<img class="pull-right" id="logo-footer" src="<?= Url::to(['/img/logo_4039.png']) ?>" alt="">
+						<img class="pull-right" id="logo-footer" src="<?= Url::to(['@web/img/logo_4039.png']) ?>" alt="">
 					</a>
 				</div>
 			</div>
