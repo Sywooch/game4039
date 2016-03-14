@@ -39,7 +39,7 @@ $aside = dirname(__DIR__) . '/aside';
 							'attribute' => '名称',
 							'value' => function ($model)
 							{
-								return \common\models\ShopOrderItem::findOne(['order_id'=>$model->id])->title;
+								return \common\models\ShopOrderItem::findOne(['order_id' => $model->id])->title;
 							}
 						],
 						[
@@ -68,7 +68,14 @@ $aside = dirname(__DIR__) . '/aside';
 							'buttons' => [
 								'delete' => function ($url, $model, $key)
 								{
-									return Html::a('<span class="glyphicon glyphicon glyphicon-trash"></span>', ['/product/my-order-delete','id' => $model->id,]);
+									return Html::a('<span class="glyphicon glyphicon glyphicon-trash"></span>', ['/product/my-order-delete', 'id' => $model->id,],
+										[
+											'title' => '删除',
+											'aria-labe' => '删除',
+											'data-confirm'=>"您确定要删除此项吗？",
+											'data-method'=>'post'
+										]
+									);
 								},
 							],
 						],
@@ -79,6 +86,7 @@ $aside = dirname(__DIR__) . '/aside';
 		</div>
 	</div>
 
+-->
 
 <?php
 $js = <<<JS
