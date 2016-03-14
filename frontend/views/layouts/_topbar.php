@@ -50,7 +50,7 @@ use yii\helpers\Url;
 							</li>
 
 							<li class="cd-log_reg hidden-sm hidden-md hidden-lg"><strong><a class="cd-signin"
-																							href="<?= Url::to(['/user/security/logout ']) ?>">退出</a></strong>
+																							href="<?= Url::to(['/user/security/logout ']) ?>" data-method="post">退出</a></strong>
 							</li>
 						<?php endif; ?>
 					</ul>
@@ -68,7 +68,7 @@ use yii\helpers\Url;
 							<li class="cd-log_reg home"><a class="cd-signin"
 														   href="<?= Url::to(['/user/profile']) ?>"><?= Yii::$app->user->identity->username ?></a>
 							</li>
-							<li class="cd-log_reg"><a class="cd-signup" href="<?= Url::to(['/user/security/logout ']) ?>">退出</a>
+							<li class="cd-log_reg"><a class="cd-signup" href="<?= Url::to(['/user/security/logout ']) ?>" data-method="post">退出</a>
 							</li>
 						<?php endif; ?>
 					</ul>
