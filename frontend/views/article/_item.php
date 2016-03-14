@@ -94,20 +94,21 @@ use yii\helpers\Html;
 <div class="clearfix margin-bottom-20">
 	<hr>
 </div>
+
 <?php
 $js = <<<JS
-	//hide or show jia this share button
-	var flagShare=0;
-	$(".share{$model->id}").click(function(){
-		if(flagShare==0){
-			$(".share-body-{$model->id}").show();
-			flagShare=1;
-		}else{
-			$(".share-body-{$model->id}").hide();
-			flagShare=0;
-		}
-	});
+//hide or show jia this share button
+var flagShare=0;
+$(".share{$model->id}").click(function(){
+	if(flagShare==0){
+		$(".share-body-{$model->id}").show();
+		flagShare=1;
+	}else{
+		$(".share-body-{$model->id}").hide();
+		flagShare=0;
+	}
+});
+
 JS;
 
 $this->registerJs($js);
-?>

@@ -70,11 +70,8 @@ use yii\bootstrap\ActiveForm;
 <?php
 
 $js = <<<JS
-jQuery(document).ready(function() {
-
 $('.applicant-info').addClass('active');
 
-    });
 JS;
 $this->registerJs($js);
 ?>

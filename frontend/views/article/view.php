@@ -147,8 +147,6 @@ $(".icon-like{$model->id}").on('click',function(event){
 	}
 });
 
-
-
 JS;
 
 $this->registerJs($js);

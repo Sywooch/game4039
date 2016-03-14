@@ -79,11 +79,8 @@ use yii\bootstrap\ActiveForm;
 <?php
 
 $js = <<<JS
-jQuery(document).ready(function() {
-
 $('.jie-shu').addClass('active');
 
-    });
 JS;
 $this->registerJs($js);
 ?>

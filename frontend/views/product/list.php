@@ -80,14 +80,14 @@ $queryCatId = Yii::$app->request->getQueryParams()['ShopProductSearch']['categor
 
 <?php
 $js = <<<JS
-jQuery(document).ready(function() {
 //make user-nav active
 $('.index-nav').removeClass('active');
 $('.shangcheng-nav').addClass('active');
 
-        App.init();
-    });
+App.init();
+
 JS;
+
 $this->registerJs($js);
 $this->registerCssFile('/unify/assets/css/shop.style.css');
 ?>

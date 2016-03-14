@@ -82,4 +82,3 @@ App.init();
 JS;
 $this->registerJs($js);
 $this->registerCssFile('/unify/assets/css/shop.style.css');
-?>

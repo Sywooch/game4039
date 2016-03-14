@@ -96,11 +96,8 @@ $this->title = '自助服务 | 结果查询';
 <?php
 
 $js = <<<JS
-jQuery(document).ready(function() {
-
 $('.jie-guo').addClass('active');
 
-    });
 JS;
 $this->registerJs($js);
 ?>

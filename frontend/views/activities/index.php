@@ -89,76 +89,75 @@ $this->title = '活动';
 
 
 <?php
-//\frontend\assets\HandlebarsAsset::register($this);
+
 $js = <<<JS
-jQuery(document).ready(function() {
-    //make user-nav active
-    $('.index-nav').removeClass('active');
-    $('.activity-nav').addClass('active');
 
-    App.init();
-    var gridContainerActivities = jQuery('#grid-container-activities'),
-        filtersContainerActivities = $('#filters-container-activities');
+App.init();
+//make user-nav active
+$('.index-nav').removeClass('active');
+$('.activity-nav').addClass('active');
 
-    gridContainerActivities.cubeportfolio({
-        mediaQueries: [{
-            width: 800,
-            cols: 4
-        }, {
-            width: 500,
-            cols: 2
-        }, {
-            width: 320,
-            cols: 1
-        }],
-        displayType: 'lazyLoading',
-        displayTypeSpeed: 1000,
-        animationType: "rotateSides",
+var gridContainerActivities = jQuery('#grid-container-activities');
+var filtersContainerActivities = $('#filters-container-activities');
+
+gridContainerActivities.cubeportfolio({
+    mediaQueries: [{
+        width: 800,
+        cols: 4
+    }, {
+        width: 500,
+        cols: 2
+    }, {
+        width: 320,
+        cols: 1
+    }],
+    displayType: 'lazyLoading',
+    displayTypeSpeed: 1000,
+    animationType: "rotateSides",
+});
+
+
+//add listener for filters
+if (filtersContainerActivities.hasClass('cbp-l-filters-dropdown')) {
+    wrap = filtersContainerActivities.find('.cbp-l-filters-dropdownWrap');
+
+    wrap.on({
+        'mouseover.cbp': function() {
+            wrap.addClass('cbp-l-filters-dropdownWrap-open');
+        },
+        'mouseleave.cbp': function() {
+            wrap.removeClass('cbp-l-filters-dropdownWrap-open');
+        }
     });
 
+    filtersCallback = function(me) {
+        wrap.find('.cbp-filter-item').removeClass('cbp-filter-item-active');
+        wrap.find('.cbp-l-filters-dropdownHeader').text(me.text());
+        me.addClass('cbp-filter-item-active');
+        wrap.trigger('mouseleave.cbp');
+    };
+} else {
+    filtersCallback = function(me) {
+        me.addClass('cbp-filter-item-active').siblings().removeClass('cbp-filter-item-active');
+    };
+}
 
-    //add listener for filters
-    if (filtersContainerActivities. hasClass('cbp-l-filters-dropdown')) {
-        wrap = filtersContainerActivities.find('.cbp-l-filters-dropdownWrap');
+filtersContainerActivities.on('click.cbp', '.cbp-filter-item', function() {
+    var me = $(this);
 
-        wrap.on({
-            'mouseover.cbp': function() {
-                wrap.addClass('cbp-l-filters-dropdownWrap-open');
-            },
-            'mouseleave.cbp': function() {
-                wrap.removeClass('cbp-l-filters-dropdownWrap-open');
-            }
-        });
-
-        filtersCallback = function(me) {
-            wrap.find('.cbp-filter-item').removeClass('cbp-filter-item-active');
-            wrap.find('.cbp-l-filters-dropdownHeader').text(me.text());
-            me.addClass('cbp-filter-item-active');
-            wrap.trigger('mouseleave.cbp');
-        };
-    } else {
-        filtersCallback = function(me) {
-            me.addClass('cbp-filter-item-active').siblings().removeClass('cbp-filter-item-active');
-        };
+    if (me.hasClass('cbp-filter-item-active')) {
+        return;
     }
 
-    filtersContainerActivities.on('click.cbp', '.cbp-filter-item', function() {
-        var me = $(this);
+    // get cubeportfolio data and check if is still animating (reposition) the items.
+    if (!$.data(gridContainerActivities[0], 'cubeportfolio').isAnimating) {
+        filtersCallback.call(null, me);
+    }
 
-        if (me.hasClass('cbp-filter-item-active')) {
-            return;
-        }
-
-        // get cubeportfolio data and check if is still animating (reposition) the items.
-        if (!$.data(gridContainerActivities[0], 'cubeportfolio').isAnimating) {
-            filtersCallback.call(null, me);
-        }
-
-        // filter the items
-        gridContainerActivities.cubeportfolio('filter', me.data('filter'), function() {
-        });
-    });
+    // filter the items
+    gridContainerActivities.cubeportfolio('filter', me.data('filter'), function() {});
 });
+
 JS;
 
 $this->registerJS($js);

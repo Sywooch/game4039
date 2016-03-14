@@ -90,7 +90,5 @@ $css = <<<CSS
     background: url({$model->getBgUrl()}) repeat fixed;
 }
 CSS;
-
 $this->registerCss($css);
 
-?>

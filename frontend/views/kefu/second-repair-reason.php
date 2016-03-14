@@ -51,11 +51,8 @@ use yii\bootstrap\ActiveForm;
 <?php
 
 $js = <<<JS
-jQuery(document).ready(function() {
-
 $('.xuan-ze-reason').addClass('active');
 
-    });
 JS;
 $this->registerJs($js);
 ?>

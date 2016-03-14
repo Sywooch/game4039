@@ -72,14 +72,13 @@ use yii\bootstrap\ActiveForm;
 <?php
 
 $js = <<<JS
-jQuery(document).ready(function() {
+
 //make user-nav active
 $('.index-nav').removeClass('active');
 $('.kefu-nav').addClass('active');
 
 $('.jie-shu').addClass('active');
 
-    });
 JS;
 $this->registerJs($js);
 ?>

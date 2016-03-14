@@ -75,11 +75,8 @@ $this->title = '自助服务 | 投诉';
 <?php
 
 $js = <<<JS
-jQuery(document).ready(function() {
-
 $('.tou-su').addClass('active');
 
-    });
 JS;
 $this->registerJs($js);
 ?>

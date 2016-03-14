@@ -68,11 +68,8 @@ use yii\bootstrap\ActiveForm;
 <?php
 
 $js = <<<JS
-jQuery(document).ready(function() {
-
 $('.ji-ben-zi-liao').addClass('active');
 
-    });
 JS;
 $this->registerJs($js);
 ?>

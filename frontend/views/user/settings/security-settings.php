@@ -177,7 +177,7 @@ $this->title = '账号安全';
 
 <?php
 $js = <<<JS
-jQuery(document).ready(function() {
+
 //make user-nav active
 $('.index-nav').removeClass('active');
 $('.user-nav').addClass('active');
@@ -185,11 +185,10 @@ $('.user-nav').addClass('active');
 //make user-history sidebar nav active
 $('.user-security-settings').addClass('active');
 
-        App.init();
-        //App.initCounter();
-        //App.initScrollBar();
-        //Datepicker.initDatepicker();
-    });
+App.init();
+//App.initCounter();
+//App.initScrollBar();
+//Datepicker.initDatepicker();
+
 JS;
 $this->registerJs($js);
-?>

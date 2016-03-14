@@ -165,14 +165,14 @@ CS;
 $this->registerCss($css);
 
 $js = <<<JS
-jQuery(document).ready(function() {
 //make user-nav active
 $('.index-nav').removeClass('active');
 $('.shangcheng-nav').addClass('active');
 
-        App.init();
-    });
+App.init();
 JS;
+
 $this->registerJs($js);
 $this->registerCssFile('@web/unify/assets/css/shop.style.css');
-?>
+
+
