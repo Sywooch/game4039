@@ -8,7 +8,7 @@ body > .header .navbar .nav > li > a > .badge {
   font-size: 75%;
 }
 body * {
-  font: 14px/1.5 "Microsoft Yahei", SimSun;
+  font: 16px/1.5 "Microsoft Yahei", SimSun;
 }
 body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon,
 body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa,
