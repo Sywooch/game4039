@@ -66,7 +66,7 @@ $this->title = '客服中心';
 						<!-- Tab Content 1 youXiWenTis-->
 						<div id="home" class="tab-pane fade in active">
 							<div id="accordion-v1" class="panel-group acc-v1">
-								<?php foreach (Buuug7Util::getKefuFaqbyCategorySlug("you-xi-wen-ti",100) as $k => $youXiWenTi): ?>
+								<?php foreach (Buuug7Util::getKefuFaqbyCategorySlug("you-xi-wen-ti", 100) as $k => $youXiWenTi): ?>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4 class="panel-title">
@@ -97,24 +97,25 @@ $this->title = '客服中心';
 						<!-- Tab Content 2 chongZhiWenTis -->
 						<div id="profile" class="tab-pane fade">
 							<div id="accordion-v2" class="panel-group acc-v1">
-								<?php foreach( Buuug7Util::getKefuFaqbyCategorySlug("chong-zhi-wen-ti",100) as $k=>$chongZhiWenTi ):?>
+								<?php foreach (Buuug7Util::getKefuFaqbyCategorySlug("chong-zhi-wen-ti", 100) as $k => $chongZhiWenTi): ?>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a href=<?= "#" . $chongZhiWenTi->category->title . $k ?> data-parent="#accordion-v2"
 												   data-toggle="collapse"
 												   class="accordion-toggle">
-													<?= $chongZhiWenTi->title?>
+													<?= $chongZhiWenTi->title ?>
 												</a>
 											</h4>
 										</div>
-										<div class="panel-collapse collapse" id=<?= $chongZhiWenTi->category->title . $k ?>>
+										<div class="panel-collapse collapse"
+											 id=<?= $chongZhiWenTi->category->title . $k ?>>
 											<div class="panel-body">
 												<?= $chongZhiWenTi->content ?>
 											</div>
 										</div>
 									</div>
-								<?php endforeach;?>
+								<?php endforeach; ?>
 
 							</div>
 						</div>
@@ -124,14 +125,14 @@ $this->title = '客服中心';
 						<div id="messages" class="tab-pane fade">
 							<div id="accordion-v3" class="panel-group acc-v1">
 
-								<?php foreach( Buuug7Util::getKefuFaqbyCategorySlug("qi-ta-wen-ti",100) as $k=>$qiTaWenTi ):?>
+								<?php foreach (Buuug7Util::getKefuFaqbyCategorySlug("qi-ta-wen-ti", 100) as $k => $qiTaWenTi): ?>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a href=<?= "#" . $qiTaWenTi->category->title . $k ?> data-parent="#accordion-v2"
 												   data-toggle="collapse"
 												   class="accordion-toggle">
-													<?= $qiTaWenTi->title?>
+													<?= $qiTaWenTi->title ?>
 												</a>
 											</h4>
 										</div>
@@ -141,7 +142,7 @@ $this->title = '客服中心';
 											</div>
 										</div>
 									</div>
-								<?php endforeach;?>
+								<?php endforeach; ?>
 							</div>
 						</div>
 						<!-- Tab Content 3 qiTaWenTis-->
@@ -157,14 +158,16 @@ $this->title = '客服中心';
 				<div class="row main-check margin-bottom-30">
 					<div class="col-xs-6 md-margin-bottom-20">
 						<ul class="list-unstyled check-style">
-							<li><i class="fa fa-angle-right color-green"></i> <a href=<?= Url::to('/page/jia-zhang-jian-hu-gong-cheng')?>>未成年人家长监护工程</a></li>
+							<li><i class="fa fa-angle-right color-green"></i> <a
+									href=<?= Url::to(['/page/jia-zhang-jian-hu-gong-cheng']) ?>>未成年人家长监护工程</a></li>
 							<li><i class="fa fa-angle-right color-green"></i> <a href="#">密码找回流程</a></li>
 						</ul>
 					</div>
 					<div class="col-xs-6">
 						<ul class="list-unstyled check-style">
 							<li><i class="fa fa-angle-right color-green"></i> <a href="#">客服守则</a></li>
-							<li><i class="fa fa-angle-right color-green"></i> <a href=<?= Url::to('/page/mian-ze-sheng-ming')?>>免责申明</a></li>
+							<li><i class="fa fa-angle-right color-green"></i> <a
+									href=<?= Url::to(['/page/mian-ze-sheng-ming']) ?>>免责申明</a></li>
 						</ul>
 					</div>
 				</div>
@@ -215,11 +218,18 @@ $this->title = '客服中心';
 	</div>
 	<div id="leftsead">
 		<ul class="list-unstyled">
-			<li><a href="tencent://message/?uin=20654039&Site=game4039.com&Menu=yes"><img
-						src="/img/foot03/ll04.png" width="131" height="49" class="hides"/><img
-						src="/img/foot03/l04.png" width="47" height="49" class="shows"/></a></li>
-			<li><a id="top_btn"><img src="/img/foot03/ll06.png" width="131" height="49" class="hides"/><img
-						src="/img/foot03/l06.png" width="47" height="49" class="shows"/></a></li>
+			<li>
+				<a href="tencent://message/?uin=20654039&Site=game4039.com&Menu=yes">
+					<img src="<?= Url::to(['/img/foot03/ll04.png']) ?>" width="131" height="49" class="hides"/>
+					<img src="<?= Url::to(['/img/foot03/l04.png']) ?>" width="47" height="49" class="shows"/>
+				</a>
+			</li>
+			<li>
+				<a id="top_btn">
+					<img src="<?= Url::to(['/img/foot03/ll06.png']) ?>" width="131" height="49" class="hides"/>
+					<img src="<?= Url::to(['/img/foot03/l06.png']) ?>" width="47" height="49" class="shows"/>
+				</a>
+			</li>
 		</ul>
 	</div>
 	<!--leftsead end-->

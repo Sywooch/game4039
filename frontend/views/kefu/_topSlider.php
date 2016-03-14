@@ -20,11 +20,12 @@
 
 
 <?php
+$background=\yii\helpers\Url::to(['@web/img/kefuzhongxing-bg.jpg']);
 $css = <<<CSS
 .breadcrumbs-v2 {
     text-align: center;
     position: relative;
-    background: url(/img/kefuzhongxing-bg.jpg) no-repeat center;
+    background: url($background) no-repeat center;
     height: 300px;
 }
 
