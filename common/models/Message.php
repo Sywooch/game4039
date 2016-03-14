@@ -87,11 +87,13 @@ class Message extends \yii\db\ActiveRecord
 		{
 			// ...custom code here..
 			//unread初始值为所有接收人,添加未阅读的用户id
-			if (true)
+			if ($insert)
 			{
 				$user = User::find()->select('id')->asArray()->all();
 				$user = ArrayHelper::getColumn($user, 'id');
 				$this->unread = implode(',', $user);
+				//将deleted初始值设置为0,防止该字段为null
+				$this->deleted=0;
 			}
 			//...custom code end
 			return true;
@@ -175,11 +177,13 @@ class Message extends \yii\db\ActiveRecord
 	public static function deleteMessageByUserId($messageId, $userId)
 	{
 		//读取数据库中deleted字段值
-		$message = Message::find()->where(['id' => $messageId])->one();
+		$message=Message::findOne(['id' => $messageId]);
 		$deleted = $message->deleted;
-
 		//如果deleted字段不等于null
-		if ($deleted)
+		if ($deleted == 0)
+		{
+			$deleted = $userId;
+		} else
 		{
 			$deletedArr = explode(',', $deleted);
 			//如果已删除字段在deleted字段中,则跳过
@@ -190,15 +194,10 @@ class Message extends \yii\db\ActiveRecord
 			{
 				$deleted .= ',' . $userId;
 			}
-		} else
-		{
-			$deleted = $userId;
 		}
 		//更新message中的deleted字段
 		$message->deleted=(string)$deleted;
-		if(!$message->save()){
-			myVarDump($message->getErrors());
-		}
+
 		return $message->save();
 	}
 }

@@ -11,7 +11,7 @@ use yii\bootstrap\Modal;
 $this->title = "我的消息";
 
 
-//myVarDump(\common\models\Message::deleteMessageByUserId(7, 223));
+//myVarDump(\common\models\Message::deleteMessageByUserId(8, 2));
 //myVarDump($dataProvider->getModels());
 ?>
 
@@ -70,6 +70,7 @@ $this->title = "我的消息";
 <!--end profile-->
 
 <?php
+$deleteUrl=\yii\helpers\Url::to(['/user/profile/delete-user-message-by-user-id']);
 $js = <<<JS
 //make user-nav active
 $('.index-nav').removeClass('active');
@@ -89,7 +90,7 @@ deleteMessage=function(args){
 	layer.confirm("你确定要删除该条消息?",{btn:['确定','取消']},
 		function(){
        			$.ajax({
-       				url:'/user/profile/delete-user-message-by-user-id',
+       				url:"{$deleteUrl}",
        				type:'post',
        				data:{
        					messageId:messageId
@@ -98,7 +99,7 @@ deleteMessage=function(args){
        					var obj=$.parseJSON(data);
        					console.log(obj);
        					layer.msg(obj.msg);
-       					window.location.reload();
+       					window.location.reload(5);
        				}
        			});
        	},
