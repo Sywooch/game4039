@@ -174,5 +174,5 @@ $('.shangcheng-nav').addClass('active');
     });
 JS;
 $this->registerJs($js);
-$this->registerCssFile('/unify/assets/css/shop.style.css');
+$this->registerCssFile('@web/unify/assets/css/shop.style.css');
 ?>
