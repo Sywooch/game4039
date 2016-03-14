@@ -23,7 +23,7 @@ class ZhiFuController extends Controller
 	{
 		if (\Yii::$app->user->isGuest)
 		{
-			return $this->redirect('/user/security/login');
+			return $this->redirect(['/user/security/login']);
 		}
 
 		$model = new ReChargeForm();
