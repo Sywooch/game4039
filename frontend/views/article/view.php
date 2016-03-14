@@ -118,34 +118,37 @@ $this->title = '资讯';
 <?php
 //计数浏览次数
 $model->addClick();
+$addStarsUrl=\yii\helpers\Url::to(['/article/add-stars']);
 
 $js = <<<JS
-	//make user-nav active
-	$('.index-nav').removeClass('active');
-	$('.zixun-nav').addClass('active');
-	//collect users praise
-	$(".icon-like{$model->id}").click(
-		function(){
-			if($(this).hasClass('praised')){
-				layer.msg('你已经点过赞啦!~');
-			}else{
-				$.ajax({
-					url:'/article/add-stars',
-					data:{
-						id:{$model->id}
-					},
-					success:function(data){
-						nodeCurrent=$('.thumbs-up{$model->id}');
-						nodeCurrent.addClass('praised');
-						nodeCurrent.css({"background":"#fff"});
-						nodeCurrent.next().text(parseInt(nodeCurrent.next().text())+1);
-						layer.msg('点赞成功!~@~');
-					}
-				});
+App.init();
+//make user-nav active
+$('.index-nav').removeClass('active');
+$('.zixun-nav').addClass('active');
+
+//collect users praise
+$(".icon-like{$model->id}").on('click',function(event){
+	event.preventDefault();
+	var el = $(this);
+	if(el.hasClass('praised')){
+		layer.msg('你已经点过赞啦!~');
+	}else{
+		$.ajax({
+			url : "{$addStarsUrl}",
+			data : {
+				id : {$model->id}
+			},
+			success : function(data){
+				el.addClass('praised');
+                el.next().text(parseInt(el.next().text()) + 1);
+                layer.msg('点赞成功!~@~');
 			}
-		}
-	);
-   App.init();
+		});
+	}
+});
+
+
+
 JS;
+
 $this->registerJs($js);
-?>
