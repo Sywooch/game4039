@@ -31,7 +31,7 @@ use yii\helpers\Url;
 				</button>
 
 				<div class="navbar-brand">
-					<a class="logo" href="<?= Url::to('site/index') ?>">
+					<a class="logo" href="<?= Url::to('/site/index') ?>">
 						<img src="<?= Url::to('@web/img/logo_4039_black.png') ?>" alt="Logo">
 					</a>
 				</div>
@@ -44,7 +44,7 @@ use yii\helpers\Url;
 					<ul class="nav navbar-nav">
 						<!-- 首页 -->
 						<li class="dropdown active index-nav">
-							<a href="<?= Url::to(['site/index']) ?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to(['/site/index']) ?>" class="dropdown-toggle" data-toggle="">
 								首页
 							</a>
 						</li>
@@ -52,7 +52,7 @@ use yii\helpers\Url;
 
 						<!-- 游戏大厅 -->
 						<li class="dropdown mega-menu-fullwidth game-nav">
-							<a href="<?= Url::to(['game/index'])?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to(['/game/index'])?>" class="dropdown-toggle" data-toggle="">
 								游戏大厅
 							</a>
 						</li>
@@ -60,7 +60,7 @@ use yii\helpers\Url;
 
 						<!-- 资讯 -->
 						<li class="dropdown home  zixun-nav">
-							<a href="<?= Url::to(['article/index']) ?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to(['/article/index']) ?>" class="dropdown-toggle" data-toggle="">
 								资讯
 							</a>
 						</li>
@@ -68,7 +68,7 @@ use yii\helpers\Url;
 
 						<!-- 用户 -->
 						<li class="dropdown  user-nav">
-							<a href="<?= Url::to(['user/profile']) ?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to(['/user/profile']) ?>" class="dropdown-toggle" data-toggle="">
 								用户
 							</a>
 						</li>
@@ -76,7 +76,7 @@ use yii\helpers\Url;
 
 						<!-- 活动 -->
 						<li class="dropdown  activity-nav">
-							<a href="<?= Url::to(['activities/index']) ?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to(['/activities/index']) ?>" class="dropdown-toggle" data-toggle="">
 								活动
 							</a>
 						</li>
@@ -84,7 +84,7 @@ use yii\helpers\Url;
 
 						<!-- 商城 -->
 						<li class="dropdown shangcheng-nav">
-							<a href="<?=Url::to(['product/index'])?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?=Url::to(['/product/index'])?>" class="dropdown-toggle" data-toggle="">
 								商城
 							</a>
 						</li>
@@ -92,7 +92,7 @@ use yii\helpers\Url;
 
 						<!-- 客服 -->
 						<li class="dropdown kefu-nav">
-							<a href="<?= Url::to(['kefu/index'])?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to(['/kefu/index'])?>" class="dropdown-toggle" data-toggle="">
 								客服
 							</a>
 						</li>
@@ -100,7 +100,7 @@ use yii\helpers\Url;
 
 						<!-- 充值 -->
 						<li class="dropdown chongzhi-nav">
-							<a href="<?= Url::to('zhi-fu/index')?>" class="dropdown-toggle" data-toggle="">
+							<a href="<?= Url::to('/zhi-fu/index')?>" class="dropdown-toggle" data-toggle="">
 								充值
 							</a>
 						</li>

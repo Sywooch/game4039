@@ -31,7 +31,7 @@ use common\util\Buuug7Util;
 					<div style="margin-top: 30px;">
 						<div class="headline"><h2>网络监管</h2></div>
 						<ul class="list-unstyled">
-							<a href="<?= Url::to(['page/jia-zhang-jian-hu-gong-cheng'])?>" style="">家长监护工厂</a>
+							<a href="<?= Url::to(['/page/jia-zhang-jian-hu-gong-cheng'])?>" style="">家长监护工厂</a>
 							<a href="<?= Yii::$app->keyStorage->get('adverse_information_report_url')?>" target="_blank" style="margin-left: 5px;">不良信息举报</a>
 						</ul>
 					</div>
@@ -48,7 +48,7 @@ use common\util\Buuug7Util;
 
 							<?php foreach (Buuug7Util::getRecentArticles() as $article): ?>
 								<li>
-									<a href="<?= Url::to(['article/view', 'slug' => $article->slug]) ?>"><?= StringHelper::truncate($article->title, 25) ?></a>
+									<a href="<?= Url::to(['/article/view', 'slug' => $article->slug]) ?>"><?= StringHelper::truncate($article->title, 25) ?></a>
 									<small><?= Yii::$app->formatter->asDate($article->published_at)?></small>
 								</li>
 							<?php endforeach; ?>
