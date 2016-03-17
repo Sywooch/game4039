@@ -250,6 +250,7 @@ $bundle = BackendAsset::register($this);
 								['label' => Yii::t('common', 'User Login Log'), 'url' => ['/user-logs/user-login-log'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
 								['label' => Yii::t('common', 'User Log'), 'url' => ['/user-logs/user-log'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
 								['label' => Yii::t('common', 'User History'), 'url' => ['/user-history/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+								['label' => Yii::t('common', 'Frontend User'), 'url' => ['/frontend-user/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
 							],
 							'visible' => Yii::$app->user->can('administrator')
 						],

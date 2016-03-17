@@ -318,4 +318,13 @@ return [
 	'{created_time} : {deleted_by} game ({model_name}) was deleted' => '{created_time} : {deleted_by} 游戏 ({model_name}) 被删除',
 	'check' => '审核',
 	'The requested page does not exist.' => '您请求的页面不存在.',
+	'Confirmed' => '已确认',
+	'Confirmation' => '确认',
+	'Registration ip' => '注册IP',
+	'Registration time' => '注册时间',
+	'Block' => '锁定',
+	'Unblock' => '解锁',
+	'Block status' => '锁定状态',
+	'Frontend User' => ' 前台会员',
+
 ];
