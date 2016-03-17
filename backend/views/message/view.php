@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'attribute' => 'status',
 				'value' => ArrayHelper::getValue(\common\models\Message::getStatus(), $model->status),
 			],
+			'deleted',
 			'content:html',
 		],
 	]) ?>
