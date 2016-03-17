@@ -24,7 +24,7 @@ class FrontendUserSearch extends UserSearch
 	 */
 	public function search($params)
 	{
-		$query = User::find();
+		$query = User::find()->orderBy('created_at DESC');
 
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,

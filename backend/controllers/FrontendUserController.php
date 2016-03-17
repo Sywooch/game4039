@@ -21,6 +21,10 @@ class FrontendUserController extends Controller
 		$finder=new Finder();
 		$searchModel=new FrontendUserSearch($finder);
 		$dataProvider=$searchModel->search(\Yii::$app->request->queryParams);
+
+		$dataProvider->pagination = [
+			'pageSize' => '15',
+		];
 		
 		return $this->render('index',[
 			'dataProvider' => $dataProvider,

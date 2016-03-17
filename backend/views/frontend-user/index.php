@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?=GridView::widget([
 	'dataProvider' 	=> $dataProvider,
 	'filterModel'  	=> $searchModel,
-	'layout'  		=> "{items}\n{pager}",
+	'layout' => "{items}\n{summary}\n{pager}",
 	'columns' => [
 		[
 			'header' => Yii::t('common','Username'),
@@ -58,8 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
 				if ($model->isConfirmed) {
 					return '<div class="text-center"><span class="text-success">' . Yii::t('common', 'Confirmed') . '</span></div>';
 				} else {
-					return Html::a(Yii::t('user', 'Confirm'), ['confirm', 'id' => $model->id], [
-						'class' => 'btn btn-xs btn-success btn-block',
+					return Html::a(Yii::t('common', 'Confirm'), ['confirm', 'id' => $model->id], [
+						'class' => 'btn btn-xs btn-success btn-block confirm',
 						'data-method' => 'post',
 						'data-confirm' => Yii::t('user', 'Are you sure you want to confirm this user?'),
 					]);
@@ -95,7 +95,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php
 $js=<<<JS
-$("a.block-status").on("click",function(e){
+$("a.block-status,a.confirm").on("click",function(e){
 	return false;
 });
 JS;

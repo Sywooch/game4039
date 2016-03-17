@@ -320,6 +320,7 @@ return [
 	'The requested page does not exist.' => '您请求的页面不存在.',
 	'Confirmed' => '已确认',
 	'Confirmation' => '确认',
+	'Confirm' => '确认',
 	'Registration ip' => '注册IP',
 	'Registration time' => '注册时间',
 	'Block' => '锁定',
