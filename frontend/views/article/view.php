@@ -150,3 +150,4 @@ $(".icon-like{$model->id}").on('click',function(event){
 JS;
 
 $this->registerJs($js);
+$this->registerCssFile('@web/unify/assets/plugins/line-icons/line-icons.css');

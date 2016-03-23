@@ -20,32 +20,38 @@ class FrontendAsset extends AssetBundle
 	public $baseUrl = '@web';
 
 	public $css = [
-		/*
-		 * CSS Global Compulsory
-		 * */
-		'unify/assets/css/style.css',
 
 		/*
-		 * CSS Header and Footer
+		 *  CSS Global Compulsory
+		 *  为了减少http请求次数,该文件合并到了custom.css文件中了,所以注释掉
 		 * */
-		//'unify/assets/css/headers/header-default.css',
-		'unify/assets/css/headers/header-v8.css',
-
-
-		'unify/assets/css/footers/footer-default.css',
+		//'unify/assets/css/style.css',
 
 		/*
-		 * CSS Implementing Plugins
+		 *  CSS Header and Footer
+		 *  为了减少http请求次数,该文件合并到了custom.css文件中了,所以注释掉
 		 * */
-		//'unify/assets/plugins/animate.css',
-		'unify/assets/plugins/line-icons/line-icons.css',
+		//'unify/assets/css/headers/header-v8.css',
+		//'unify/assets/css/footers/footer-default.css',
+
+
+		/*
+		 *  line-icons.css
+		 *  line-icons.css只在article页面用到了,所以只在该对应页面加载,无需全局加载该文件,所以注释掉
+		 * */
+		//'unify/assets/plugins/line-icons/line-icons.css',
 		'unify/assets/plugins/font-awesome/css/font-awesome.min.css',
 
+
 		/*
-		 * Site CSS Theme
+		 *  custom css
 		 * */
+		'unify/assets/css/custom.css',
 
 
+		/*
+		 *  Site CSS Theme
+		 * */
 		//'unify/assets/css/theme-colors/aqua.css',
 		//'unify/assets/css/theme-colors/blue.css',
 		//'unify/assets/css/theme-colors/brown.css',
@@ -58,11 +64,6 @@ class FrontendAsset extends AssetBundle
 		//'unify/assets/css/theme-colors/purple.css',
 		//'unify/assets/css/theme-colors/red.css',
 		'unify/assets/css/theme-colors/teal.css',
-
-		/*
-		 * CSS Implementing Plugins
-		 * */
-		'unify/assets/css/custom.css',
 	];
 
 	public $js = [
