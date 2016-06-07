@@ -58,7 +58,8 @@
     "kartik-v/yii2-checkbox-x": "*",
     "bower-asset/handlebars": "*",
     "bower-asset/bootbox": "*",
-    "beecloud.cn/rest": "*"
+    "beecloud.cn/rest": "*",
+    "npm-asset/bootstrap":"*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

@@ -1,16 +1,15 @@
+## 这里是一些常用的入口地址以及其他有用的信息
 
-这里是一些常用的入口地址以及其他有用的信息
-
-1>
+### 1
 http://game4039.dev/user/admin  前台用户管理(默认账号:buuug7)
 
-2>
+### 2
 用户的行为配置在config文件,component->user中
 
-3>
+###  3
 覆盖引用composer第三方类库中的个别文件的目录为项目根目录下的override-3rd-lib目录
 
-4>
+###  4
 该项目下运行yii migrate
 //创建一个迁移,位于common/migrations/db
 php console/yii migrate/create create_table_game_gamecategory
@@ -22,15 +21,15 @@ php console/yii rbac-migrate/create
 //执行一个rbac迁移文件
 php console/yii rbac-migrate
 
-5>
+###  5
 由于来自于http://layer.layui.com/官网的layer插件没有对应的bower以及npm资源
 并不能用包管理来引用,将其放入项目根目录的overrider-3rd-lib目录中
 
-6>
+###  6
 记着安装composer-asset-plugin
 composer require "fxp/composer-asset-plugin:~1.0.3"
 
-7>
+###  7
 站内消息设计方案:
 方案一:
 消息表message:
@@ -59,11 +58,11 @@ SELECT * FROM `message` WHERE MATCH(`unread`) AGAINST('2');
 2.tb_message_readlog (readLogId,messageId,uid,isread)
 如果消息数据量比较大，建议分表处理，可以根据用户的id来分表，比如id=123456的用户发送的消息就放到tb_message6，类似这样的处理
 
-8>
+###  8
 用户消息需要完善的地方:
 增加分类,前台用户删除已阅读的消息
 
-9>
+###  9
 会员等级	刻度划分
 VIP0	0<=成长值<1,000
 VIP1	1,000<=成长值<10,000
