@@ -2,8 +2,6 @@
 //
 define('DISCUZ_DBTABLEPRE', '`dz`.pre_');
 //
-
-
 define('UC_CONNECT', 'mysql');
 define('UC_DBHOST', 'localhost');
 define('UC_DBUSER', 'root');
@@ -18,6 +16,7 @@ define('UC_CHARSET', 'utf-8');
 define('UC_IP', '');
 define('UC_APPID', '2');
 define('UC_PPP', '20');
+
 
 //ucexample_2.php 用到的应用程序数据库连接参数
 $dbhost = 'localhost';            // 数据库服务器
