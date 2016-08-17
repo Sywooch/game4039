@@ -6,8 +6,8 @@ define('DISCUZ_DBTABLEPRE', '`dz`.pre_');
 
 define('UC_CONNECT', 'mysql');
 define('UC_DBHOST', 'localhost');
-define('UC_DBUSER', 'gansutianqi2016');
-define('UC_DBPW', 'root');
+define('UC_DBUSER', 'root');
+define('UC_DBPW', 'gansutianqi2016');
 define('UC_DBNAME', 'dz');
 define('UC_DBCHARSET', 'utf8');
 define('UC_DBTABLEPRE', '`dz`.pre_ucenter_');
