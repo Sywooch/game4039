@@ -24,3 +24,8 @@ phpunit.phar
 # Vagrant
 /.vagrant
 /vagrant.yaml
+bbs/data/backup_ee4e6a/
+bbs/uc_server/data/logs
+
+
+storage/.quarantine/
