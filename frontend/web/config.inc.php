@@ -21,7 +21,7 @@ define('UC_PPP', '20');
 //ucexample_2.php 用到的应用程序数据库连接参数
 $dbhost = 'localhost';            // 数据库服务器
 $dbuser = 'root';            // 数据库用户名
-$dbpw = 'root';                // 数据库密码
+$dbpw = 'gansutianqi2016';                // 数据库密码
 $dbname = 'dz';            // 数据库名
 $pconnect = 0;                // 数据库持久连接 0=关闭, 1=打开
 $tablepre = '`dz`.pre_ucenter_';        // 表名前缀, 同一数据库安装多个论坛请修改此处
