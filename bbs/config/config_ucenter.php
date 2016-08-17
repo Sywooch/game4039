@@ -1,5 +1,5 @@
 <?php
-define('UC_CONNECT', 'mysql');
+/*define('UC_CONNECT', 'mysql');
 define('UC_DBHOST', 'localhost');
 define('UC_DBUSER', 'root');
 define('UC_DBPW', 'root');
@@ -12,7 +12,7 @@ define('UC_API', 'http://bbs.game4039.dev/uc_server');
 define('UC_CHARSET', 'utf-8');
 define('UC_IP', '');
 define('UC_APPID', '1');
-define('UC_PPP', '20');
+define('UC_PPP', '20');*/
 
 
 
