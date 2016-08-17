@@ -16,6 +16,8 @@ class BackendAsset extends AssetBundle
     public $baseUrl = '@web';
 
     public $css = [
+		'css/adminlte/AdminLTE.min.css',
+		'css/adminlte/skins/_all-skins.min.css',
         'css/style.css'
     ];
     public $js = [

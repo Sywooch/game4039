@@ -17,10 +17,17 @@ class AdminLte extends AssetBundle
         'bootstrap/js/bootstrap.js',
         'dist/js/app.min.js',
     ];
+
+	/*
+	 * 由于google fonts 字体的在线引用极不稳定,时不时被墙
+	 * 所以去掉了AdminLTE CSS 文件中的google fonts的引用
+	 * 该文件转移到BackendAsset.php文件中进行管理
+	 *
+	 * */
     public $css = [
         'bootstrap/css/bootstrap.css',
-        'dist/css/AdminLTE.min.css',
-        'dist/css/skins/_all-skins.min.css'
+        //'dist/css/AdminLTE.min.css',
+       // 'dist/css/skins/_all-skins.min.css'
     ];
     public $depends = [
         'yii\web\JqueryAsset',

@@ -3,6 +3,12 @@
 ### 1
 http://game4039.dev/user/admin  前台用户管理(默认账号:buuug7)
 
+uc_server 密码为admin
+
+进入dz后台管理:
+http://xxx/admin.php
+dz 账号密码 admin/admin
+
 ### 2
 用户的行为配置在config文件,component->user中
 
@@ -95,3 +101,41 @@ unify/assets/css/custom.css
 unify/assets/plugins/revolution-slider/rs-plugin/css/settings.css
 unify/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css
 unify/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css
+
+### 10
+部署到新的服务器上的时候需要注意事项
+- frontend/runtime
+- backend/runtime
+- frontend/web/assets
+- backend/web/assets
+- storage/
+以上目录权限需要777
+
+```
+chmod -R 777 /var/www/html/game4039/frontend/runtime
+chmod -R 777 /var/www/html/game4039/backend/runtime
+chmod -R 777 /var/www/html/game4039/frontend/web/assets
+chmod -R 777 /var/www/html/game4039/frontend/web/assets
+chmod -R 777 /var/www/html/game4039/storage
+```
+新服务器apache2比如要
+a2enmod rewrite
+
+修改项目根目录的 .env文件,配置你自己的账号密码
+
+修改 frontend/web/config.inc.php中账号密码(ucenter)
+
+修改bbs/config目录下的config_global.php和config_ucenter.php中账号和密码
+修改bbs/uc_server/data/config.inc.php中账号和密码
+
+设置 bbs目录中data目录以及子目录 为可读写
+
+### ucenter 通信设置
+记着 设置 ucenter_server目录为可读写
+
+
+
+
+
+
+
