@@ -18,7 +18,7 @@ define('UC_APPID', '2');
 define('UC_PPP', '20');
 
 
-//ucexample_2.php 用到的应用程序数据库连接参数
+//应用中用到的应用程序数据库连接参数
 $dbhost = 'localhost';            // 数据库服务器
 $dbuser = 'root';            // 数据库用户名
 $dbpw = 'gansutianqi2016';                // 数据库密码
